@@ -1,9 +1,19 @@
 export type ProductModel = {
+  /** Identificador para el link directo a la ficha (sin espacios ni tildes). */
+  id: string;
   name: string;
   description: string;
   image: string;
   specs: Array<{ label: string; value: string }>;
   highlights?: string[];
+  /** Solo para familias con categorías (por ejemplo, bombas). */
+  category?: string;
+};
+
+export type ProductCategory = {
+  name: string;
+  description: string;
+  image: string;
 };
 
 export type ProductFamily = {
@@ -14,20 +24,36 @@ export type ProductFamily = {
   description: string;
   application: string;
   coverImage: string;
+  /** Si existe, los modelos se agrupan por estas categorías. */
+  categories?: ProductCategory[];
   models: ProductModel[];
 };
 
 export const productFamilies: ProductFamily[] = [
   {
-    slug: "bombas-pozo",
+    slug: "bombas-sumergibles",
     number: "01",
-    title: "Bombas sumergibles Hidrosteel",
-    shortTitle: "Bombas de pozo",
-    description: "Hidrosteel, nuestra línea propia de bombas sumergibles en acero inoxidable para abastecimiento, APR, riego, industria y minería.",
-    application: "Agua limpia, captación subterránea, aumento de presión y dewatering de mina.",
+    title: "Bombas sumergibles",
+    shortTitle: "Bombas sumergibles",
+    description: "Bombas sumergibles en acero inoxidable y fierro fundido para pozos profundos, desagüe y drenaje.",
+    application: "Agua potable, APR, riego, industria, aguas servidas, faenas y dewatering de mina.",
     coverImage: "/productos/bombas-pozo-grupo.png",
+    categories: [
+      {
+        name: "Bombas sumergibles de pozo",
+        description: "Para captación de agua subterránea en pozos de 4 a 12 pulgadas.",
+        image: "/productos/bomba-4-grupo.png",
+      },
+      {
+        name: "Bombas sumergibles de desagüe",
+        description: "Para aguas servidas, agotamiento, construcción y drenaje de faenas.",
+        image: "/productos/bombas-drenaje-grupo.png",
+      },
+    ],
     models: [
       {
+        id: "bomba-4",
+        category: "Bombas sumergibles de pozo",
         name: "Bomba 4\"",
         description: "Bomba sumergible compacta, de alta eficiencia y con impulsores flotantes para pozos de diámetro reducido.",
         image: "/productos/bomba-4-grupo.png",
@@ -42,6 +68,8 @@ export const productFamilies: ProductFamily[] = [
         highlights: ["Válvula de retención incluida", "Impulsores flotantes"],
       },
       {
+        id: "serie-hs",
+        category: "Bombas sumergibles de pozo",
         name: "Serie HS",
         description: "Bomba robusta para condiciones severas, fabricada en acero inoxidable y preparada para aplicaciones de alto caudal.",
         image: "/productos/bombas-pozo-grupo.png",
@@ -56,6 +84,8 @@ export const productFamilies: ProductFamily[] = [
         highlights: ["Acero inoxidable", "Válvula de retención incluida", "Sólidos hasta 50 g/m³"],
       },
       {
+        id: "series-hfs-hft",
+        category: "Bombas sumergibles de pozo",
         name: "Series HFS y HFT",
         description: "Línea de gran capacidad para pozos profundos, minería e instalaciones que requieren alta presión y continuidad operacional.",
         image: "/productos/bomba-pozo-hft.png",
@@ -69,78 +99,9 @@ export const productFamilies: ProductFamily[] = [
         ],
         highlights: ["Válvula de retención incluida", "Configuraciones hasta 12 pulgadas"],
       },
-    ],
-  },
-  {
-    slug: "bombeo-solar",
-    number: "02",
-    title: "Sistemas de bombeo solar",
-    shortTitle: "Bombeo solar",
-    description: "Soluciones autónomas para extracción de agua mediante energía solar, diseñadas como un kit integrado.",
-    application: "Riego, APR, ganadería y abastecimiento en zonas remotas o sin red eléctrica estable.",
-    coverImage: "/productos/bombeo-solar.png",
-    models: [
       {
-        name: "FHOTON / High Efficiency",
-        description: "Equipo solar completo para bombeo sumergible, disponible en configuraciones de 4 y 6 pulgadas.",
-        image: "/productos/bombeo-solar.png",
-        specs: [
-          { label: "Caudal máximo 4\"", value: "16 m³/h" },
-          { label: "Caudal máximo 6\"", value: "96 m³/h" },
-          { label: "Altura máxima 4\"", value: "240 m" },
-          { label: "Altura máxima 6\"", value: "350 m" },
-          { label: "Potencia 4\"", value: "0,5 a 2,2 kW" },
-          { label: "Potencia 6\"", value: "5,5 a 37 kW" },
-        ],
-        highlights: ["Bomba y motor sumergibles", "Drive solar / VFD", "Transductor de presión"],
-      },
-    ],
-  },
-  {
-    slug: "bombas-industriales",
-    number: "03",
-    title: "Bombas centrífugas e industriales",
-    shortTitle: "Bombas industriales",
-    description: "Bombas multietapa horizontales y verticales para agua limpia, aumento de presión y procesos productivos.",
-    application: "Industria, minería, procesos, distribución de agua y sistemas de presurización.",
-    coverImage: "/productos/bombas-industriales.png",
-    models: [
-      {
-        name: "Serie MH horizontal",
-        description: "Bomba centrífuga multietapa horizontal en acero inoxidable para aplicaciones compactas de alta presión.",
-        image: "/productos/bombas-industriales.png",
-        specs: [
-          { label: "Caudal máximo", value: "29 m³/h" },
-          { label: "Altura máxima", value: "104 m" },
-          { label: "Temperatura del líquido", value: "-15 a 100 °C" },
-          { label: "Potencia", value: "0,33 a 5,5 kW" },
-          { label: "Material", value: "Acero inoxidable 304 / 316" },
-        ],
-      },
-      {
-        name: "Serie VR vertical",
-        description: "Bomba centrífuga multietapa vertical para mayores caudales y alturas en instalaciones industriales.",
-        image: "/productos/bombas-verticales.png",
-        specs: [
-          { label: "Caudal máximo", value: "120 m³/h" },
-          { label: "Altura máxima", value: "320 m" },
-          { label: "Temperatura del líquido", value: "-15 a 120 °C" },
-          { label: "Potencia", value: "0,37 a 45 kW" },
-          { label: "Material", value: "Acero inoxidable 304 / 316" },
-        ],
-      },
-    ],
-  },
-  {
-    slug: "drenaje",
-    number: "04",
-    title: "Bombas para aguas servidas y drenaje",
-    shortTitle: "Drenaje y aguas servidas",
-    description: "Equipos sumergibles para aguas servidas, agotamiento, construcción y desagüe de operaciones mineras.",
-    application: "Instalaciones sanitarias, faenas, lodos, aguas sucias y dewatering.",
-    coverImage: "/productos/bombas-drenaje-grupo.png",
-    models: [
-      {
+        id: "serie-nc-s",
+        category: "Bombas sumergibles de desagüe",
         name: "Serie NC / S",
         description: "Bomba sumergible de alto rendimiento para aguas servidas y desagüe, construida para trabajo continuo.",
         image: "/productos/bomba-drenaje.png",
@@ -158,7 +119,7 @@ export const productFamilies: ProductFamily[] = [
   },
   {
     slug: "motores-sumergibles",
-    number: "05",
+    number: "02",
     title: "Motores sumergibles",
     shortTitle: "Motores sumergibles",
     description: "Motores encapsulados y rebobinables para distintos diámetros, temperaturas, potencias y condiciones de operación.",
@@ -166,6 +127,7 @@ export const productFamilies: ProductFamily[] = [
     coverImage: "/productos/motores-azules.png",
     models: [
       {
+        id: "motor-encapsulado-4",
         name: "Motor encapsulado 4\"",
         description: "Motor sumergible compacto en acero inoxidable para bombas de pozo de 4 pulgadas.",
         image: "/productos/motor-4.png",
@@ -177,6 +139,7 @@ export const productFamilies: ProductFamily[] = [
         ],
       },
       {
+        id: "motores-encapsulados-6-8",
         name: "Motores encapsulados 6\" y 8\"",
         description: "Motores para sistemas de mayor potencia, con voltajes estándar y especiales.",
         image: "/productos/motores-azules.png",
@@ -190,6 +153,7 @@ export const productFamilies: ProductFamily[] = [
         ],
       },
       {
+        id: "motores-rebobinables",
         name: "Motores rebobinables",
         description: "Línea de alta potencia en aleaciones resistentes para aplicaciones industriales y mineras exigentes.",
         image: "/productos/motor-rebobinable.png",
@@ -205,36 +169,36 @@ export const productFamilies: ProductFamily[] = [
   },
   {
     slug: "cables-sumergibles",
-    number: "06",
-    title: "Cable sumergible Hidrocable",
+    number: "03",
+    title: "Cable sumergible",
     shortTitle: "Cable sumergible",
-    description: "Hidrocable, nuestra línea propia de cables planos y redondos para alimentación eléctrica de bombas y motores sumergibles.",
-    application: "Alimentación de bombas y motores en pozos profundos, minería, riego y sistemas de bombeo solar.",
+    description: "Cables planos y redondos para alimentación eléctrica de bombas y motores sumergibles.",
+    application: "Alimentación de bombas y motores en pozos profundos, minería, riego y sistemas de bombeo.",
     coverImage: "/productos/cable-sumergible.png",
     models: [
       {
-        name: "Hidrocable plano",
+        id: "cable-plano",
+        name: "Cable plano",
         description: "Cable plano con cubierta de goma azul para bajadas en pozo, desde 3 conductores.",
         image: "/productos/cable-sumergible.png",
         specs: [
           { label: "Goma plano azul", value: "3 × 4 a 3 × 120 mm²" },
         ],
-        highlights: ["Marca propia Hidroterra"],
       },
       {
-        name: "Hidrocable redondo",
+        id: "cable-redondo",
+        name: "Cable redondo",
         description: "Cable redondo flexible para alimentación de motores sumergibles y equipos de superficie.",
         image: "/productos/cable-redondo.png",
         specs: [
           { label: "Goma redondo H07RN-F", value: "4 × 2,5 a 4 × 70 mm²" },
         ],
-        highlights: ["Marca propia Hidroterra"],
       },
     ],
   },
   {
     slug: "tableros-electricos",
-    number: "07",
+    number: "04",
     title: "Tableros eléctricos y variadores de frecuencia",
     shortTitle: "Tableros eléctricos",
     description: "Soluciones de control y protección para adaptar el funcionamiento del equipo a la demanda del sistema.",
@@ -242,6 +206,7 @@ export const productFamilies: ProductFamily[] = [
     coverImage: "/productos/tablero-vfd-a.png",
     models: [
       {
+        id: "tableros-variadores",
         name: "Tableros y variadores de frecuencia",
         description: "Soluciones de control y protección para adaptar el funcionamiento del equipo a la demanda del sistema.",
         image: "/productos/tablero-vfd-a.png",
@@ -253,6 +218,7 @@ export const productFamilies: ProductFamily[] = [
         ],
       },
       {
+        id: "tablero-variador-b",
         name: "Tablero con variador (modelo B)",
         description: "Tablero de control con variador para operación según demanda.",
         image: "/productos/tablero-vfd-b.png",
@@ -262,31 +228,13 @@ export const productFamilies: ProductFamily[] = [
       },
     ],
   },
-  {
-    slug: "control-conduccion",
-    number: "08",
-    title: "Tubería flexible para pozos",
-    shortTitle: "Tubería flexible",
-    description: "Tubería flexible para pozos que simplifica el transporte y reduce tiempos y costos de instalación.",
-    application: "Conducción desde pozos profundos.",
-    coverImage: "/productos/tuberia-flexible.png",
-    models: [
-      {
-        name: "Tubería flexible Wellmaster",
-        description: "Tubería flexible para pozos que simplifica el transporte y reduce tiempos y costos de instalación.",
-        image: "/productos/tuberia-flexible.png",
-        specs: [
-          { label: "Series", value: "150, 200, 250 y 400" },
-          { label: "Tracción", value: "Hasta 20 toneladas" },
-          { label: "Comportamiento", value: "Sin corrosión" },
-          { label: "Certificación", value: "Aprobaciones NSF" },
-        ],
-        highlights: ["Alto rendimiento hidráulico", "Sin crecimiento de bacterias", "Menor costo de instalación y transporte"],
-      },
-    ],
-  },
 ];
 
 export function getProductFamily(slug: string) {
   return productFamilies.find((family) => family.slug === slug);
+}
+
+/** Link directo a la ficha de un modelo dentro de la página de su familia. */
+export function modelHref(family: ProductFamily, model: ProductModel) {
+  return `/soluciones/${family.slug}#${model.id}`;
 }

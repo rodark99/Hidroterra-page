@@ -22,12 +22,17 @@ export default async function ProductFamilyPage({ params }: FamilyPageProps) {
   const family = getProductFamily(slug);
   if (!family) notFound();
 
+  const groups = family.categories?.length
+    ? family.categories.map((category) => ({ category, models: family.models.filter((model) => model.category === category.name) }))
+    : [{ category: undefined, models: family.models }];
+  let counter = 0;
+
   return (
     <PageShell active="soluciones">
       <section className="family-hero">
         <div className="family-hero__copy">
           <Link href="/soluciones" className="family-back">← Volver al catálogo</Link>
-          <p className="eyebrow">Familia {family.number}</p>
+          <p className="eyebrow">Sección {family.number}</p>
           <h1>{family.title}</h1>
           <p>{family.description}</p>
           <div className="family-hero__application"><span>Aplicaciones</span><strong>{family.application}</strong></div>
@@ -42,22 +47,32 @@ export default async function ProductFamilyPage({ params }: FamilyPageProps) {
         </div>
 
         <div className="model-list">
-          {family.models.map((model, index) => (
-            <article className="model-card" key={model.name}>
-              <div className="model-card__media">
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <img src={model.image} alt={model.name} />
-              </div>
-              <div className="model-card__content">
-                <h2>{model.name}</h2>
-                <p>{model.description}</p>
-                {model.highlights && <ul>{model.highlights.map((item) => <li key={item}>{item}</li>)}</ul>}
-                <Link className="catalog-card__link" href={`/contacto?producto=${encodeURIComponent(model.name)}`}>Cotizar este equipo <span>↗</span></Link>
-              </div>
-              <dl className="spec-list">
-                {model.specs.map((spec) => <div key={`${model.name}-${spec.label}`}><dt>{spec.label}</dt><dd>{spec.value}</dd></div>)}
-              </dl>
-            </article>
+          {groups.map((group) => (
+            <div className="model-group" key={group.category?.name ?? "todos"}>
+              {group.category && (
+                <div className="model-category" id={group.category.name.toLowerCase().replace(/\s+/g, "-")}>
+                  <img src={group.category.image} alt="" />
+                  <div><h3>{group.category.name}</h3><p>{group.category.description}</p></div>
+                </div>
+              )}
+              {group.models.map((model) => (
+                <article className="model-card" id={model.id} key={model.id}>
+                  <div className="model-card__media">
+                    <span>{String(++counter).padStart(2, "0")}</span>
+                    <img src={model.image} alt={model.name} />
+                  </div>
+                  <div className="model-card__content">
+                    <h2>{model.name}</h2>
+                    <p>{model.description}</p>
+                    {model.highlights && <ul>{model.highlights.map((item) => <li key={item}>{item}</li>)}</ul>}
+                    <Link className="catalog-card__link" href={`/contacto?producto=${encodeURIComponent(model.name)}`}>Cotizar este equipo <span>↗</span></Link>
+                  </div>
+                  <dl className="spec-list">
+                    {model.specs.map((spec) => <div key={`${model.name}-${spec.label}`}><dt>{spec.label}</dt><dd>{spec.value}</dd></div>)}
+                  </dl>
+                </article>
+              ))}
+            </div>
           ))}
         </div>
       </section>

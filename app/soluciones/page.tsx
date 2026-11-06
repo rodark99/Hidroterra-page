@@ -5,7 +5,7 @@ import { productFamilies } from "../catalog-data";
 
 export const metadata: Metadata = {
   title: "Productos y soluciones",
-  description: "Catálogo de bombas de pozo, bombeo solar, motores, cables, control y soluciones hidráulicas de Hidroterra.",
+  description: "Catálogo de bombas sumergibles de pozo y desagüe, motores sumergibles, cable sumergible y tableros eléctricos de Hidroterra.",
 };
 
 export default function SolucionesPage() {

@@ -129,11 +129,6 @@ export default async function ContactoPage({ searchParams }: ContactoPageProps) 
             Seleccionamos equipos y soluciones de bombeo según las condiciones
             reales de cada proyecto.
           </p>
-          <div className="contact-brands" aria-label="Marcas propias">
-            <span>Marcas propias</span>
-            <strong>Hidrosteel <small>Bombas sumergibles</small></strong>
-            <strong>Hidrocable <small>Cable sumergible</small></strong>
-          </div>
         </aside>
       </section>
     </PageShell>
