@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   description: "Catálogo de bombas sumergibles de pozo y desagüe, motores sumergibles, cable sumergible y tableros eléctricos de Hidroterra.",
 };
 
+const supportPoints = ["Caudal y altura de trabajo", "Potencia y voltaje", "Materiales según el fluido", "Configuración de control"];
+
 export default function SolucionesPage() {
   return (
     <PageShell active="soluciones">
@@ -25,7 +27,7 @@ export default function SolucionesPage() {
       </section>
 
       <section className="catalog-section section" id="catalogo">
-        <div className="catalog-section__head">
+        <div className="section-head">
           <div>
             <p className="eyebrow">Catálogo Hidroterra</p>
             <h2>Encuentra la solución que necesita tu operación.</h2>
@@ -33,28 +35,40 @@ export default function SolucionesPage() {
           <p>Selecciona una categoría para revisar sus modelos, especificaciones y aplicaciones recomendadas.</p>
         </div>
 
-        <div className="catalog-grid">
+        <div className="family-grid">
           {productFamilies.map((family) => (
-            <article className="catalog-card" key={family.slug}>
-              <Link className="catalog-card__image" href={`/soluciones/${family.slug}`} aria-label={`Conocer más sobre ${family.title}`}>
-                <span>{family.number}</span>
+            <Link className="family-card" href={`/soluciones/${family.slug}`} key={family.slug}>
+              <div className="family-card__media">
                 <img src={family.coverImage} alt={family.title} />
-              </Link>
-              <div className="catalog-card__body">
-                <p>{family.application}</p>
+              </div>
+              <div className="family-card__body">
+                <span className="soft-card__number">{family.number}</span>
                 <h2>{family.shortTitle}</h2>
                 <p>{family.description}</p>
-                <Link className="catalog-card__link" href={`/soluciones/${family.slug}`}>Conocer más <span>→</span></Link>
+                <ul aria-label="Equipos disponibles">
+                  {(family.categories?.length ? family.categories.map((category) => category.name.replace("Bombas sumergibles de ", "Bombas de ")) : family.models.map((model) => model.name)).map((name) => (
+                    <li key={name}>{name}</li>
+                  ))}
+                </ul>
+                <span className="family-card__link">Ver productos <b>→</b></span>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </section>
 
       <section className="catalog-support section">
-        <div><p className="eyebrow">Asesoría técnica</p><h2>No necesitas elegir el equipo solo.</h2></div>
-        <p>Nuestro equipo puede ayudarte a definir caudal, altura, potencia, materiales y configuración según las condiciones reales de tu proyecto.</p>
-        <Link className="button button--primary" href="/contacto">Solicitar recomendación <span>↗</span></Link>
+        <div className="catalog-support__box">
+          <div>
+            <p className="eyebrow">Asesoría técnica</p>
+            <h2>No necesitas elegir el equipo solo.</h2>
+            <p>Nuestro equipo te ayuda a definir la configuración según las condiciones reales de tu proyecto.</p>
+            <Link className="button button--primary" href="/contacto">Solicitar recomendación <span>↗</span></Link>
+          </div>
+          <ul>
+            {supportPoints.map((point) => <li key={point}>{point}</li>)}
+          </ul>
+        </div>
       </section>
       <ContactBand title="¿Necesitas una cotización o una selección técnica?" />
     </PageShell>

@@ -791,3 +791,105 @@ to{transform:translate(50%,-50%) rotate(360deg)}
 .rail-card__media{background:#fff}
 .rail-card--intro img,.model-category img{mix-blend-mode:multiply;filter:none}
 .rail-card__media img{filter:none}
+
+/* ===== Paleta suave en todo el sitio (Empresa, Soluciones, Contacto) ===== */
+:root{--action:#0a7fb3;--action-hover:#086a96}
+.button{border-radius:12px}
+.button--primary,.contact-form__submit{background:var(--action);color:#fff;box-shadow:0 12px 26px rgba(10,127,179,.2)}
+.button--primary:hover,.contact-form__submit:hover{background:var(--action-hover)}
+.contact-form__submit{border-radius:12px}
+.nav-contact{background:var(--action)!important;color:#fff!important;border-radius:12px}
+.nav-contact:hover{background:var(--action-hover)!important}
+.contact-form{border-radius:22px;box-shadow:0 20px 50px rgba(13,58,82,.08);border:1px solid #e3eff4}
+.contact-form input:not([type=checkbox]),.contact-form select,.contact-form textarea{border-radius:10px}
+
+/* Encabezado de sección reutilizable */
+.section-head{max-width:1220px;margin:0 auto 40px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.6fr);gap:6vw;align-items:end}
+.section-head h2{margin:16px 0 0;font-size:clamp(32px,3.6vw,52px);line-height:1.06;letter-spacing:-.04em;color:var(--navy)}
+.section-head>p{margin:0;color:var(--muted);font-size:16px;line-height:1.7}
+
+/* Tarjetas suaves */
+.soft-card{border-radius:22px;background:linear-gradient(165deg,var(--soft-1),var(--soft-2));color:var(--soft-ink);padding:28px}
+.soft-card h3{margin:10px 0 8px;font-size:20px;letter-spacing:-.02em;line-height:1.2}
+.soft-card p{margin:0;font-size:14px;line-height:1.6;color:#3f6475}
+.soft-card__number{font-size:11px;letter-spacing:.18em;font-weight:800;color:var(--blue)}
+
+/* Empresa */
+.company-summary{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,90px)}
+.company-summary__copy h2{font-size:clamp(34px,3.6vw,52px)}
+.principle-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.offer{background:#f7fbfd}
+.offer-grid{max-width:1220px;margin:0 auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.offer-card{display:flex;flex-direction:column;gap:6px;padding:0 0 24px;border-radius:22px;background:#fff;border:1px solid #e3eff4;color:var(--navy);overflow:hidden;transition:transform .35s,box-shadow .35s}
+.offer-card:hover,.offer-card:focus-visible{transform:translateY(-6px);box-shadow:0 22px 40px rgba(13,58,82,.12);outline:none}
+.offer-card__media{height:190px;margin-bottom:14px;display:grid;place-items:center;background:linear-gradient(165deg,var(--soft-1),var(--soft-2))}
+.offer-card__media img{max-width:80%;max-height:160px;object-fit:contain;mix-blend-mode:multiply}
+.offer-card>.soft-card__number,.offer-card h3,.offer-card__link{padding:0 24px}
+.offer-card h3{margin:0;font-size:21px;letter-spacing:-.02em}
+.offer-card__link,.family-card__link{margin-top:auto;padding-top:10px;font-size:12px;font-weight:800;color:var(--blue)}
+.offer-card__link b,.family-card__link b{display:inline-block;transition:transform .3s}
+.offer-card:hover .offer-card__link b,.family-card:hover .family-card__link b{transform:translateX(4px)}
+.process{background:#fff}
+.process-grid{max-width:1220px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.process-card__step{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:var(--blue)}
+.process-card h3{font-size:22px;margin-top:14px}
+.process-cta{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) 300px;align-items:center;gap:30px;padding:40px 44px;border-radius:22px;background:linear-gradient(120deg,var(--soft-1),var(--soft-2) 70%,var(--soft-3));color:var(--soft-ink);overflow:hidden}
+.process-cta h3{margin:12px 0 10px;font-size:clamp(28px,3vw,40px);letter-spacing:-.035em;line-height:1.08}
+.process-cta p{margin:0 0 24px;color:#3f6475;font-size:15px;line-height:1.6}
+.process-cta img{width:100%;height:260px;object-fit:cover;border-radius:16px}
+.buying-support,.buying-support--company{display:none}
+
+/* Soluciones */
+.catalog-hero__media{background:none;padding:48px clamp(24px,5vw,64px) 48px 0}
+.catalog-hero__media:after{display:none}
+.catalog-hero__media img{border-radius:22px;box-shadow:0 22px 45px rgba(13,58,82,.16);width:78%;height:56%}
+.catalog-hero__media img:first-child{left:0;top:48px}
+.catalog-hero__media img:last-child{right:clamp(24px,5vw,64px);bottom:48px;filter:none}
+.catalog-section{background:#fff}
+.family-grid{max-width:1220px;margin:0 auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.family-card{display:grid;grid-template-columns:44% minmax(0,1fr);border-radius:22px;overflow:hidden;background:#f5fafc;border:1px solid #e3eff4;color:var(--navy);transition:transform .35s,box-shadow .35s}
+.family-card:hover,.family-card:focus-visible{transform:translateY(-6px);box-shadow:0 22px 40px rgba(13,58,82,.12);outline:none}
+.family-card__media{display:grid;place-items:center;padding:24px;background:linear-gradient(165deg,var(--soft-1),var(--soft-2))}
+.family-card__media img{width:100%;max-height:220px;object-fit:contain;mix-blend-mode:multiply;transition:transform .45s}
+.family-card:hover .family-card__media img{transform:scale(1.05)}
+.family-card__body{padding:28px 28px 26px;display:flex;flex-direction:column;gap:8px}
+.family-card__body h2{margin:0;font-size:26px;letter-spacing:-.025em;line-height:1.15}
+.family-card__body p{margin:0;font-size:14px;line-height:1.6;color:var(--muted)}
+.family-card__body ul{list-style:none;margin:8px 0 6px;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.family-card__body li{font-size:11.5px;font-weight:700;padding:6px 10px;border-radius:999px;background:var(--soft-1);color:var(--soft-ink)}
+.catalog-support{display:block;background:#fff;padding-top:0}
+.catalog-support__box{max-width:1220px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:40px;align-items:center;padding:clamp(32px,4vw,52px);border-radius:22px;background:linear-gradient(120deg,var(--soft-1),var(--soft-2) 70%,var(--soft-3));color:var(--soft-ink)}
+.catalog-support__box h2{margin:14px 0 12px;font-size:clamp(30px,3.4vw,46px)}
+.catalog-support__box p:not(.eyebrow){margin:0 0 26px;color:#3f6475;font-size:15px;line-height:1.65}
+.catalog-support__box ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.catalog-support__box li{display:flex;gap:12px;align-items:center;padding:14px 18px;border-radius:14px;background:rgba(255,255,255,.7);font-size:14px;font-weight:700}
+.catalog-support__box li:before{content:"✓";display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--action);color:#fff;font-size:12px;flex:none}
+
+/* Contacto: tarjetas suaves */
+.contact-workspace__aside{border-radius:22px;overflow:hidden}
+
+@media(max-width:1000px){
+  .offer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .family-grid{grid-template-columns:1fr}
+}
+@media(max-width:800px){
+  .section-head,.company-summary,.catalog-support__box,.process-grid,.process-cta{grid-template-columns:1fr}
+  .section-head{gap:14px}
+  .process-cta{padding:30px 24px}
+  .process-cta img{height:220px}
+  .catalog-hero__media{padding:0 22px 30px}
+}
+@media(max-width:560px){
+  .principle-grid,.offer-grid{grid-template-columns:1fr}
+  .family-card{grid-template-columns:1fr}
+  .family-card__media{height:200px}
+  .catalog-hero__media img:first-child{top:0}
+  .catalog-hero__media img:last-child{bottom:30px;right:22px}
+}
+@media(max-width:560px){
+  .offer-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .offer-card__media{height:130px}
+  .offer-card__media img{max-height:110px}
+  .offer-card>.soft-card__number,.offer-card h3,.offer-card__link{padding:0 14px}
+  .offer-card h3{font-size:16px}
+}
