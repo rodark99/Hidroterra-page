@@ -14,7 +14,7 @@ const principles = [
 
 const steps = [
   { title: "Entendemos la operación", text: "Revisamos caudal, altura, tipo de fluido, diámetro del pozo y condiciones de trabajo. Si faltan datos, te ayudamos a definirlos." },
-  { title: "Seleccionamos el equipo", text: "Integramos bomba, motor, cable y tablero eléctrico para que el sistema funcione como un conjunto." },
+  { title: "Seleccionamos el equipo", text: "Integramos bomba, motor, cable, tubería y tablero eléctrico para que el sistema funcione como un conjunto." },
   { title: "Acompañamos en el tiempo", text: "Damos soporte técnico para mantener la continuidad operacional y resolver cambios en la demanda." },
 ];
 
@@ -54,7 +54,7 @@ export default function EmpresaPage() {
             <p className="eyebrow">Qué ofrecemos</p>
             <h2 id="offer-title">Todo el sistema de bombeo, en un solo lugar.</h2>
           </div>
-          <p>Cuatro líneas de equipos que trabajan juntas desde el fondo del pozo hasta el tablero de control.</p>
+          <p>Cinco líneas de equipos que trabajan juntas desde el fondo del pozo hasta el tablero de control.</p>
         </div>
         <div className="offer-grid">
           {productFamilies.map((family) => (

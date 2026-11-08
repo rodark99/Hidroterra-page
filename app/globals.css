@@ -893,3 +893,9 @@ to{transform:translate(50%,-50%) rotate(360deg)}
   .offer-card>.soft-card__number,.offer-card h3,.offer-card__link{padding:0 14px}
   .offer-card h3{font-size:16px}
 }
+/* 5 secciones */
+.offer-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
+.family-card:last-child:nth-child(odd){grid-column:1/-1;grid-template-columns:30% minmax(0,1fr)}
+@media(max-width:1100px){.offer-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:1000px){.family-card:last-child:nth-child(odd){grid-template-columns:44% minmax(0,1fr)}}
+@media(max-width:560px){.offer-grid{grid-template-columns:1fr 1fr}.family-card:last-child:nth-child(odd){grid-template-columns:1fr}}

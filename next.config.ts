@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
       { source: "/soluciones/drenaje", destination: "/soluciones/bombas-sumergibles", permanent: true },
       { source: "/soluciones/bombeo-solar", destination: "/soluciones", permanent: true },
       { source: "/soluciones/bombas-industriales", destination: "/soluciones", permanent: true },
-      { source: "/soluciones/control-conduccion", destination: "/soluciones", permanent: true },
+      { source: "/soluciones/control-conduccion", destination: "/soluciones/tuberia-flexible", permanent: true },
     ];
   },
 };

@@ -228,6 +228,30 @@ export const productFamilies: ProductFamily[] = [
       },
     ],
   },
+  {
+    slug: "tuberia-flexible",
+    number: "05",
+    title: "Tubería flexible para pozos",
+    shortTitle: "Tubería flexible",
+    description: "Tubería flexible para pozos que simplifica el transporte y reduce tiempos y costos de instalación.",
+    application: "Conducción desde pozos profundos para agua potable, riego, industria y minería.",
+    coverImage: "/productos/tuberia-flexible.png",
+    models: [
+      {
+        id: "tuberia-flexible",
+        name: "Tubería flexible para pozos",
+        description: "Tubería flexible con acoples de acero inoxidable que se instala en una fracción del tiempo de una tubería rígida.",
+        image: "/productos/tuberia-flexible.png",
+        specs: [
+          { label: "Series", value: "150, 200, 250 y 400" },
+          { label: "Tracción", value: "Hasta 20 toneladas" },
+          { label: "Comportamiento", value: "Sin corrosión" },
+          { label: "Certificación", value: "Aprobaciones NSF" },
+        ],
+        highlights: ["Alto rendimiento hidráulico", "Sin crecimiento de bacterias", "Menor costo de instalación y transporte"],
+      },
+    ],
+  },
 ];
 
 export function getProductFamily(slug: string) {
