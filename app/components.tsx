@@ -81,13 +81,13 @@ export function ContactForm() {
     <form className="contact-form" action="/api/contacto" method="POST">
       <input className="contact-form__trap" type="text" name="_honey" tabIndex={-1} autoComplete="off" />
       <div className="contact-form__grid">
-        <label><span>Nombre y apellido *</span><input type="text" name="Nombre" autoComplete="name" placeholder="Ej. Camila González" required /></label>
+        <label><span>Nombre y apellido *</span><input type="text" name="Nombre" autoComplete="name" placeholder="Ej. Camila González" required minLength={3} /></label>
         <label><span>Empresa</span><input type="text" name="Empresa" autoComplete="organization" placeholder="Nombre de la empresa" /></label>
         <label><span>Correo electrónico *</span><input type="email" name="email" autoComplete="email" placeholder="nombre@empresa.cl" required /></label>
         <label><span>Teléfono</span><input type="tel" name="Telefono" autoComplete="tel" placeholder="+56 9 1234 5678" /></label>
       </div>
       <label><span>¿En qué podemos ayudarte? *</span><select name="Tipo de solicitud" defaultValue="" required><option value="" disabled>Selecciona una opción</option><option>Bombas sumergibles de pozo</option><option>Bombas sumergibles de desagüe</option><option>Motores sumergibles</option><option>Cable sumergible</option><option>Tableros eléctricos</option><option>Tubería flexible</option><option>Proyecto hidráulico integral</option><option>Otra consulta</option></select></label>
-      <label><span>Cuéntanos sobre tu proyecto *</span><textarea name="Mensaje" rows={5} placeholder="Describe brevemente tu necesidad, ubicación y plazos estimados." required /></label>
+      <label><span>Cuéntanos sobre tu proyecto *</span><textarea name="Mensaje" rows={5} placeholder="Describe brevemente tu necesidad, ubicación y plazos estimados." required minLength={10} /></label>
       <label className="contact-form__consent"><input type="checkbox" name="Consentimiento" value="Aceptado" required /><span>Acepto que Hidroterra utilice estos datos para responder mi solicitud.</span></label>
       <button className="contact-form__submit" type="submit">Enviar solicitud <span aria-hidden="true">↗</span></button>
       <p className="contact-form__note">Los campos marcados con * son obligatorios.</p>

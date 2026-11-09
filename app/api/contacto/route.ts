@@ -41,7 +41,7 @@ async function sendEmail(
 
 export async function POST(request: Request) {
   const successUrl = new URL("/contacto?enviado=true", request.url);
-  const errorUrl = new URL("/contacto?error=true", request.url);
+  const errorUrl = (motivo: string) => new URL(`/contacto?error=${motivo}`, request.url);
 
   try {
     const formData = await request.formData();
@@ -68,11 +68,20 @@ export async function POST(request: Request) {
       descripcion.length < 10 ||
       !consentimiento
     ) {
-      return NextResponse.redirect(errorUrl, 303);
+      return NextResponse.redirect(errorUrl("datos"), 303);
     }
 
-    const supabaseUrl = requiredEnv("SUPABASE_URL").replace(/\/$/, "");
-    const supabaseSecretKey = requiredEnv("SUPABASE_SECRET_KEY");
+    let supabaseUrl: string;
+    let supabaseSecretKey: string;
+    try {
+      // Acepta la URL aunque venga con "/" o "/rest/v1" al final.
+      supabaseUrl = requiredEnv("SUPABASE_URL").replace(/\/+$/, "").replace(/\/rest\/v1$/, "");
+      supabaseSecretKey = requiredEnv("SUPABASE_SECRET_KEY");
+      new URL(supabaseUrl);
+    } catch (error) {
+      console.error("Configuración incompleta:", error);
+      return NextResponse.redirect(errorUrl("configuracion"), 303);
+    }
 
     const databaseResponse = await fetch(
       `${supabaseUrl}/rest/v1/solicitudes_contacto`,
@@ -95,11 +104,13 @@ export async function POST(request: Request) {
     );
 
     if (!databaseResponse.ok) {
-      console.error(
-        "No se pudo guardar la solicitud:",
-        await databaseResponse.text(),
-      );
-      return NextResponse.redirect(errorUrl, 303);
+      const detalle = await databaseResponse.text();
+      console.error("No se pudo guardar la solicitud:", databaseResponse.status, detalle);
+      let motivo = "base-datos";
+      if (databaseResponse.status === 401 || /invalid api key|jwt/i.test(detalle)) motivo = "clave";
+      else if (/42501|row-level security|permission denied/i.test(detalle)) motivo = "clave-publica";
+      else if (/42P01|PGRST205|does not exist|could not find the table/i.test(detalle)) motivo = "tabla";
+      return NextResponse.redirect(errorUrl(motivo), 303);
     }
 
     const registros = (await databaseResponse.json()) as SolicitudGuardada[];
@@ -181,6 +192,6 @@ export async function POST(request: Request) {
     return NextResponse.redirect(successUrl, 303);
   } catch (error) {
     console.error("Error procesando el formulario:", error);
-    return NextResponse.redirect(errorUrl, 303);
+    return NextResponse.redirect(errorUrl("conexion"), 303);
   }
 }

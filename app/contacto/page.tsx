@@ -52,6 +52,17 @@ type ContactoPageProps = {
   }>;
 };
 
+// Mensajes según el motivo del error (el código entre paréntesis sirve para diagnosticar).
+const errorMessages: Record<string, string> = {
+  datos: "Revisa los datos: el nombre debe tener al menos 3 letras, el correo debe ser válido y el mensaje al menos 10 caracteres.",
+  configuracion: "No pudimos enviar tu solicitud en este momento. Escríbenos a ventas@hidroterra.cl. (Código: configuración)",
+  clave: "No pudimos enviar tu solicitud en este momento. Escríbenos a ventas@hidroterra.cl. (Código: clave)",
+  "clave-publica": "No pudimos enviar tu solicitud en este momento. Escríbenos a ventas@hidroterra.cl. (Código: clave pública)",
+  tabla: "No pudimos enviar tu solicitud en este momento. Escríbenos a ventas@hidroterra.cl. (Código: tabla)",
+  "base-datos": "No pudimos enviar tu solicitud en este momento. Escríbenos a ventas@hidroterra.cl. (Código: base de datos)",
+  conexion: "No pudimos enviar tu solicitud en este momento. Escríbenos a ventas@hidroterra.cl. (Código: conexión)",
+};
+
 export default async function ContactoPage({ searchParams }: ContactoPageProps) {
   const params = await searchParams;
 
@@ -114,10 +125,9 @@ export default async function ContactoPage({ searchParams }: ContactoPageProps) 
               contacto contigo.
             </p>
           )}
-          {params.error === "true" && (
+          {params.error && (
             <p className="form-alert form-alert--error" role="alert">
-              No pudimos procesar la solicitud. Revisa los datos e inténtalo
-              nuevamente.
+              {errorMessages[params.error] ?? errorMessages.conexion}
             </p>
           )}
           <ContactForm />
