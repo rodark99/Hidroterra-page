@@ -146,7 +146,10 @@ export async function POST(request: Request) {
         ].join("\n"),
       });
 
-      const emailCliente = await sendEmail(resendApiKey, {
+      // Con el remitente de prueba de Resend (sin dominio verificado) solo se
+      // puede escribir al correo de la cuenta, así que no se envía la confirmación al cliente.
+      const dominioVerificado = !/@resend\.dev>?$/i.test(senderEmail);
+      const emailCliente = !dominioVerificado ? null : await sendEmail(resendApiKey, {
         from: senderEmail,
         to: [correo],
         reply_to: destinationEmail,
@@ -166,7 +169,7 @@ export async function POST(request: Request) {
 
       const errores: string[] = [];
       if (!emailEmpresa.ok) errores.push(await emailEmpresa.text());
-      if (!emailCliente.ok) errores.push(await emailCliente.text());
+      if (emailCliente && !emailCliente.ok) errores.push(await emailCliente.text());
 
       const updateUrl =
         `${supabaseUrl}/rest/v1/solicitudes_contacto` +
