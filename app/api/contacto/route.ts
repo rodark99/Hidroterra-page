@@ -1,3 +1,4 @@
+import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
 
 type SolicitudGuardada = { id: string };
@@ -25,18 +26,64 @@ function supabaseHeaders(secretKey: string): Record<string, string> {
   return headers;
 }
 
-async function sendEmail(
-  apiKey: string,
-  message: Record<string, unknown>,
-): Promise<Response> {
-  return fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(message),
-  });
+type Correo = { to: string; replyTo: string; subject: string; text: string };
+type Enviador = { from: string; aceptaCualquierDestino: boolean; enviar: (correo: Correo) => Promise<string | null> };
+
+/**
+ * Elige cómo enviar correos según las variables de Vercel:
+ * - SMTP_HOST, SMTP_USER y SMTP_PASS → el servidor de correo propio (por ejemplo, Bluehost).
+ * - RESEND_API_KEY → Resend.
+ * Devuelve null si no hay nada configurado. enviar() devuelve el error o null si salió bien.
+ */
+function crearEnviador(): Enviador | null {
+  const smtpHost = process.env.SMTP_HOST?.trim();
+  const smtpUser = process.env.SMTP_USER?.trim();
+  const smtpPass = process.env.SMTP_PASS;
+  const from = process.env.CONTACT_FROM_EMAIL?.trim();
+
+  if (smtpHost && smtpUser && smtpPass) {
+    const port = Number(process.env.SMTP_PORT?.trim() || 465);
+    const transporte = nodemailer.createTransport({
+      host: smtpHost,
+      port,
+      secure: port === 465,
+      auth: { user: smtpUser, pass: smtpPass },
+      connectionTimeout: 10000,
+      greetingTimeout: 10000,
+    });
+    return {
+      // El servidor exige que el remitente sea la misma cuenta.
+      from: from && from.includes(smtpUser) ? from : `Hidroterra Web <${smtpUser}>`,
+      aceptaCualquierDestino: true,
+      enviar: async ({ to, replyTo, subject, text }) => {
+        try {
+          await transporte.sendMail({ from: from && from.includes(smtpUser) ? from : `Hidroterra Web <${smtpUser}>`, to, replyTo, subject, text });
+          return null;
+        } catch (error) {
+          return error instanceof Error ? error.message : String(error);
+        }
+      },
+    };
+  }
+
+  const resendApiKey = process.env.RESEND_API_KEY?.trim();
+  if (resendApiKey && from) {
+    return {
+      from,
+      // Con el remitente de prueba de Resend solo se puede escribir al correo de la cuenta.
+      aceptaCualquierDestino: !/@resend\.dev>?$/i.test(from),
+      enviar: async ({ to, replyTo, subject, text }) => {
+        const respuesta = await fetch("https://api.resend.com/emails", {
+          method: "POST",
+          headers: { Authorization: `Bearer ${resendApiKey}`, "Content-Type": "application/json" },
+          body: JSON.stringify({ from, to: [to], reply_to: replyTo, subject, text }),
+        });
+        return respuesta.ok ? null : await respuesta.text();
+      },
+    };
+  }
+
+  return null;
 }
 
 export async function POST(request: Request) {
@@ -120,15 +167,13 @@ export async function POST(request: Request) {
       throw new Error("Supabase no devolvió el ID de la solicitud");
     }
 
-    const resendApiKey = process.env.RESEND_API_KEY?.trim();
     const destinationEmail = process.env.CONTACT_TO_EMAIL?.trim();
-    const senderEmail = process.env.CONTACT_FROM_EMAIL?.trim();
+    const enviador = crearEnviador();
 
-    if (resendApiKey && destinationEmail && senderEmail) {
-      const emailEmpresa = await sendEmail(resendApiKey, {
-        from: senderEmail,
-        to: [destinationEmail],
-        reply_to: correo,
+    if (enviador && destinationEmail) {
+      const errorEmpresa = await enviador.enviar({
+        to: destinationEmail,
+        replyTo: correo,
         subject: `Nueva solicitud: ${tipoAyuda} — ${nombre}`,
         text: [
           "Nueva solicitud desde el sitio web de Hidroterra",
@@ -146,14 +191,11 @@ export async function POST(request: Request) {
         ].join("\n"),
       });
 
-      // Con el remitente de prueba de Resend (sin dominio verificado) solo se
-      // puede escribir al correo de la cuenta, así que no se envía la confirmación al cliente.
-      const dominioVerificado = !/@resend\.dev>?$/i.test(senderEmail);
-      const emailCliente = !dominioVerificado ? null : await sendEmail(resendApiKey, {
-        from: senderEmail,
-        to: [correo],
-        reply_to: destinationEmail,
-        subject: "Recibimos tu solicitud — Hidroterra",
+      const errorCliente = enviador.aceptaCualquierDestino
+        ? await enviador.enviar({
+            to: correo,
+            replyTo: destinationEmail,
+            subject: "Recibimos tu solicitud — Hidroterra",
         text: [
           `Hola ${nombre},`,
           "",
@@ -165,11 +207,11 @@ export async function POST(request: Request) {
           "",
           "Hidroterra SpA",
         ].join("\n"),
-      });
+          })
+        : null;
 
-      const errores: string[] = [];
-      if (!emailEmpresa.ok) errores.push(await emailEmpresa.text());
-      if (emailCliente && !emailCliente.ok) errores.push(await emailCliente.text());
+      const errores = [errorEmpresa, errorCliente].filter((e): e is string => Boolean(e));
+      if (errores.length) console.error("Error enviando correos:", errores);
 
       const updateUrl =
         `${supabaseUrl}/rest/v1/solicitudes_contacto` +

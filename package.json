@@ -12,7 +12,9 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@types/nodemailer": "^6.4.17",
     "next": "16.2.6",
+    "nodemailer": "^6.9.16",
     "react": "19.2.6",
     "react-dom": "19.2.6"
   },
