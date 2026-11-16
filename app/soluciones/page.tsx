@@ -5,7 +5,7 @@ import { productFamilies } from "../catalog-data";
 
 export const metadata: Metadata = {
   title: "Productos y soluciones",
-  description: "Catálogo de bombas sumergibles de pozo y desagüe, motores sumergibles, cable sumergible y tableros eléctricos de Hidroterra.",
+  description: "Catálogo de bombas sumergibles de pozo y desagüe, motores sumergibles, cable sumergible, tableros eléctricos, tubería flexible, cañerías, válvulas y conexiones de Hidroterra.",
 };
 
 const supportPoints = ["Caudal y altura de trabajo", "Potencia y voltaje", "Materiales según el fluido", "Configuración de control"];

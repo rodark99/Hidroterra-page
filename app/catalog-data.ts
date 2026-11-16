@@ -252,6 +252,119 @@ export const productFamilies: ProductFamily[] = [
       },
     ],
   },
+  {
+    slug: "canerias",
+    number: "06",
+    title: "Cañerías",
+    shortTitle: "Cañerías",
+    description: "Cañerías galvanizadas, de acero inoxidable y de acero negro, con hilo NPT o BSP.",
+    application: "Columnas de impulsión, redes de agua, instalaciones industriales y montaje de equipos de bombeo.",
+    coverImage: "/productos/canerias.png",
+    models: [
+      {
+        id: "caneria-galvanizada",
+        name: "Cañería galvanizada",
+        description: "Cañería de acero con recubrimiento de zinc que la protege de la corrosión.",
+        image: "/productos/caneria-galvanizada.png",
+        specs: [
+          { label: "Material", value: "Acero galvanizado" },
+          { label: "Hilo", value: "NPT o BSP" },
+        ],
+      },
+      {
+        id: "caneria-acero-inoxidable",
+        name: "Cañería de acero inoxidable",
+        description: "Cañería resistente a la corrosión para agua potable, fluidos agresivos e industria.",
+        image: "/productos/caneria-inox.png",
+        specs: [
+          { label: "Material", value: "Acero inoxidable" },
+          { label: "Hilo", value: "NPT o BSP" },
+        ],
+      },
+      {
+        id: "caneria-acero-negro",
+        name: "Cañería de acero negro",
+        description: "Cañería de acero al carbono sin recubrimiento, de alta resistencia mecánica.",
+        image: "/productos/caneria-acero-negro.png",
+        specs: [
+          { label: "Material", value: "Acero al carbono" },
+          { label: "Hilo", value: "NPT o BSP" },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "valvulas",
+    number: "07",
+    title: "Válvulas",
+    shortTitle: "Válvulas",
+    description: "Válvulas manuales y de retención para controlar, aislar y proteger el sistema de bombeo.",
+    application: "Corte y regulación de flujo, protección contra retorno y aislamiento de equipos para mantención.",
+    coverImage: "/productos/valvulas.png",
+    models: [
+      {
+        id: "valvula-bola",
+        name: "Válvula de bola",
+        description: "Válvula manual de apertura y cierre rápido con un cuarto de vuelta.",
+        image: "/productos/valvula-bola.png",
+        specs: [
+          { label: "Tipo", value: "Manual" },
+          { label: "Uso", value: "Corte rápido de flujo" },
+        ],
+      },
+      {
+        id: "valvula-compuerta",
+        name: "Válvula de compuerta",
+        description: "Válvula manual con volante para aislar tramos y equipos de la instalación.",
+        image: "/productos/valvula-compuerta.png",
+        specs: [
+          { label: "Tipo", value: "Manual" },
+          { label: "Uso", value: "Aislamiento de tramos" },
+        ],
+      },
+      {
+        id: "valvula-retencion",
+        name: "Válvula de retención (check)",
+        description: "Permite el paso del agua en un solo sentido y evita el retorno hacia la bomba.",
+        image: "/productos/valvula-retencion.png",
+        specs: [
+          { label: "Tipo", value: "Retención" },
+          { label: "Uso", value: "Evita el retorno del flujo" },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "conexiones",
+    number: "08",
+    title: "Conexiones",
+    shortTitle: "Conexiones",
+    description: "Coplas, thredolets y otras conexiones para unir y derivar cañerías.",
+    application: "Unión de tramos, derivaciones y montaje de instrumentos en redes de agua e industria.",
+    coverImage: "/productos/conexiones.png",
+    models: [
+      {
+        id: "copla",
+        name: "Coplas",
+        description: "Conexión roscada para unir dos tramos de cañería del mismo diámetro.",
+        image: "/productos/copla.png",
+        specs: [
+          { label: "Unión", value: "Roscada" },
+          { label: "Uso", value: "Unión de tramos" },
+        ],
+      },
+      {
+        id: "thredolet",
+        name: "Thredolet",
+        description: "Conexión que se suelda sobre la cañería para crear una derivación con salida roscada.",
+        image: "/productos/thredolet.png",
+        specs: [
+          { label: "Unión", value: "Soldada a la cañería" },
+          { label: "Salida", value: "Roscada" },
+        ],
+      },
+    ],
+  },
 ];
 
 export function getProductFamily(slug: string) {
