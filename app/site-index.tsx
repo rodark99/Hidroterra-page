@@ -71,7 +71,7 @@ export function SiteIndex() {
         onClick={() => setOpen(true)}
       >
         <span className="index-toggle__icon" aria-hidden="true"><span /><span /><span /></span>
-        <span className="index-toggle__label">Índice</span>
+        <span className="visually-hidden">Abrir índice</span>
       </button>
 
       <div className={`index-overlay ${open ? "is-open" : ""}`} onClick={close} aria-hidden="true" />
@@ -98,10 +98,7 @@ export function SiteIndex() {
               {productFamilies.map((family) => (
                 <li key={family.slug}>
                   <details className="site-index__family" open={currentFamily === family.slug}>
-                    <summary>
-                      <span className="site-index__num">{family.number}</span>
-                      {family.shortTitle}
-                    </summary>
+                    <summary>{family.shortTitle}</summary>
                     <ul>
                       <li>
                         <Link className="site-index__all" href={`/soluciones/${family.slug}`} onClick={close}>Ver toda la sección</Link>

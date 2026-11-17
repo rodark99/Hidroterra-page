@@ -63,7 +63,6 @@ function buildCards(family: ProductFamily): ReactNode[] {
       <IntroCard
         key={`cat-${category.name}`}
         order={next()}
-        eyebrow="Categoría"
         title={category.name}
         text={category.description}
         image={category.image}
@@ -79,7 +78,6 @@ function buildCards(family: ProductFamily): ReactNode[] {
     <IntroCard
       key="intro"
       order={next()}
-      eyebrow="Aplicaciones"
       title={family.shortTitle}
       text={family.application}
       image={family.coverImage}
@@ -88,11 +86,10 @@ function buildCards(family: ProductFamily): ReactNode[] {
   ];
 }
 
-function IntroCard({ order, eyebrow, title, text, image, catalog }: { order: number; eyebrow: string; title: string; text: string; image: string; catalog?: { label: string; href: string } }) {
+function IntroCard({ order, title, text, image, catalog }: { order: number; title: string; text: string; image: string; catalog?: { label: string; href: string } }) {
   return (
     <article className="rail-card rail-card--intro" style={{ "--i": order } as React.CSSProperties}>
       <div className="rail-card__copy">
-        <span className="rail-card__eyebrow">{eyebrow}</span>
         <h3>{title}</h3>
         <p>{text}</p>
         {catalog && (
