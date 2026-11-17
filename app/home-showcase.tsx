@@ -81,6 +81,7 @@ function buildCards(family: ProductFamily): ReactNode[] {
       title={family.shortTitle}
       text={family.application}
       image={family.coverImage}
+      catalog={family.catalog}
     />,
     ...family.models.map((model) => <ModelCard key={model.id} order={next()} family={family} model={model} />),
   ];

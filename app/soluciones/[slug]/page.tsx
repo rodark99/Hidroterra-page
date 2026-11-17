@@ -36,6 +36,11 @@ export default async function ProductFamilyPage({ params }: FamilyPageProps) {
           <h1>{family.title}</h1>
           <p>{family.description}</p>
           <div className="family-hero__application"><span>Aplicaciones</span><strong>{family.application}</strong></div>
+          {family.catalog && (
+            <a className="download-link" href={family.catalog.href} download>
+              <span aria-hidden="true">↓</span> {family.catalog.label}
+            </a>
+          )}
         </div>
         <div className="family-hero__image"><img src={family.coverImage} alt={family.title} /></div>
       </section>

@@ -29,6 +29,8 @@ export type ProductFamily = {
   coverImage: string;
   /** Si existe, los modelos se agrupan por estas categorías. */
   categories?: ProductCategory[];
+  /** Catálogo descargable de toda la sección. */
+  catalog?: { label: string; href: string };
   models: ProductModel[];
 };
 
@@ -36,10 +38,10 @@ export const productFamilies: ProductFamily[] = [
   {
     slug: "bombas-sumergibles",
     number: "01",
-    title: "Bombas sumergibles",
-    shortTitle: "Bombas sumergibles",
-    description: "Bombas sumergibles en acero inoxidable y fierro fundido para pozos profundos, desagüe y drenaje.",
-    application: "Agua potable, APR, riego, industria, aguas servidas, faenas y dewatering de mina.",
+    title: "Bombas",
+    shortTitle: "Bombas",
+    description: "Bombas sumergibles para pozos y desagüe, y bombas centrífugas de superficie para presurización, riego e industria.",
+    application: "Agua potable, APR, riego, industria, procesos, aguas servidas, faenas y dewatering de mina.",
     coverImage: "/productos/bombas-pozo-grupo.png",
     categories: [
       {
@@ -52,6 +54,11 @@ export const productFamilies: ProductFamily[] = [
         description: "Para aguas servidas, agotamiento, construcción y drenaje de faenas mineras.",
         image: "/productos/minetuff-grupo.jpg",
         catalog: { label: "Catálogo Minetuff (PDF)", href: "/catalogos/catalogo-minetuff.pdf" },
+      },
+      {
+        name: "Bombas centrífugas",
+        description: "Bombas de superficie para abastecimiento, presurización, riego, climatización, incendio e industria.",
+        image: "/productos/centrifuga-monoblock.jpg",
       },
     ],
     models: [
@@ -161,6 +168,40 @@ export const productFamilies: ProductFamily[] = [
         ],
         highlights: ["Motor con aislación clase F", "Configuración para drenaje de mina"],
       },
+      {
+        id: "centrifuga-monoblock-f",
+        category: "Bombas centrífugas",
+        name: "Centrífuga monoblock Serie F",
+        description: "Bomba compacta con motor y bomba en un solo bloque, bajo norma EN 733. Fácil de instalar y mantener: la opción de confianza para abastecimiento, presurización, riego, climatización e incendio.",
+        image: "/productos/centrifuga-monoblock.jpg",
+        specs: [
+          { label: "Caudal máximo", value: "345 m³/h" },
+          { label: "Altura máxima", value: "98 m" },
+          { label: "Temperatura del líquido", value: "-10 a +90 °C" },
+          { label: "Presión máxima", value: "10 bar (PN10)" },
+          { label: "Norma", value: "EN 733" },
+          { label: "Cuerpo", value: "Fierro fundido" },
+          { label: "Eje", value: "Acero inoxidable AISI 431" },
+          { label: "Motor", value: "2 polos, protección IP55" },
+        ],
+        highlights: ["Dimensiones normalizadas: reemplaza fácilmente equipos existentes", "Para agua limpia sin partículas abrasivas"],
+      },
+      {
+        id: "centrifuga-normalizada-megacpk",
+        category: "Bombas centrífugas",
+        name: "Centrífuga normalizada MegaCPK",
+        description: "Bomba de proceso sobre base para agua, químicos y líquidos agresivos. Su diseño back pull-out permite retirar el rotor sin desconectar las cañerías, reduciendo los tiempos de mantención.",
+        image: "/productos/centrifuga-normalizada.jpg",
+        specs: [
+          { label: "Caudal máximo", value: "3.300 m³/h" },
+          { label: "Altura máxima", value: "162 m" },
+          { label: "Presión máxima", value: "25 bar" },
+          { label: "Temperatura del líquido", value: "Hasta 400 °C" },
+          { label: "Norma", value: "ISO 2858 / ISO 5199" },
+          { label: "Diseño", value: "Voluta horizontal, back pull-out" },
+        ],
+        highlights: ["Amplia variedad de materiales y sellos", "Industria, minería, química, desalación y alimentos"],
+      },
     ],
   },
   {
@@ -220,16 +261,26 @@ export const productFamilies: ProductFamily[] = [
     shortTitle: "Cable sumergible",
     description: "Cables planos y redondos para alimentación eléctrica de bombas y motores sumergibles.",
     application: "Alimentación de bombas y motores en pozos profundos, minería, riego y sistemas de bombeo.",
-    coverImage: "/productos/cable-sumergible.png",
+    coverImage: "/productos/cable-plano-foto.jpg",
+    catalog: { label: "Catálogo cable sumergible (PDF)", href: "/catalogos/catalogo-cable-sumergible.pdf" },
     models: [
       {
         id: "cable-plano",
-        name: "Cable plano",
-        description: "Cable plano con cubierta de goma azul para bajadas en pozo, desde 3 conductores.",
-        image: "/productos/cable-sumergible.png",
+        name: "Cable plano de goma",
+        description: "Cable plano de 3 y 4 conductores con aislación y cubierta de goma, no tóxico y resistente al agua: apto para agua potable y pozos de hasta 500 m de profundidad.",
+        image: "/productos/cable-plano-foto.jpg",
         specs: [
-          { label: "Goma plano azul", value: "3 × 4 a 3 × 120 mm²" },
+          { label: "Conductores", value: "3 y 4 (plano)" },
+          { label: "Sección", value: "1,5 a 120 mm²" },
+          { label: "Tensión", value: "1.100 V" },
+          { label: "Temperatura de operación", value: "-40 a +90 °C" },
+          { label: "Profundidad", value: "Hasta 500 m" },
+          { label: "Conductor", value: "Cobre flexible clase 5" },
+          { label: "Aislación", value: "Goma EPR / EPDM" },
+          { label: "Normas", value: "BS EN 50525, IEC 60245, VDE 0282" },
         ],
+        highlights: ["Apto para agua potable", "Resistente a aceites, ácidos, químicos y ozono", "Resistente a la intemperie"],
+        catalog: { label: "Descargar catálogo (PDF)", href: "/catalogos/catalogo-cable-sumergible.pdf" },
       },
       {
         id: "cable-redondo",
