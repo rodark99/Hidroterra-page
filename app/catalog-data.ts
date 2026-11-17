@@ -63,11 +63,11 @@ export const productFamilies: ProductFamily[] = [
     ],
     models: [
       {
-        id: "grundfos-sq",
+        id: "bomba-3",
         category: "Bombas sumergibles de pozo",
-        name: "Bomba 3\" Grundfos SQ",
+        name: "Bomba 3\" SQ",
         description: "La solución más simple para pozos angostos: se conecta directo a 220 V, sin tablero, y se protege sola contra trabajo en seco y variaciones de voltaje. Ideal para casas, parcelas, APR pequeños y riego.",
-        image: "/productos/grundfos-sq.png",
+        image: "/productos/bomba-3.png",
         specs: [
           { label: "Caudal máximo", value: "9 m³/h" },
           { label: "Altura máxima", value: "237 m" },
@@ -187,9 +187,9 @@ export const productFamilies: ProductFamily[] = [
         highlights: ["Dimensiones normalizadas: reemplaza fácilmente equipos existentes", "Para agua limpia sin partículas abrasivas"],
       },
       {
-        id: "centrifuga-normalizada-megacpk",
+        id: "centrifuga-normalizada",
         category: "Bombas centrífugas",
-        name: "Centrífuga normalizada MegaCPK",
+        name: "Centrífuga normalizada",
         description: "Bomba de proceso sobre base para agua, químicos y líquidos agresivos. Su diseño back pull-out permite retirar el rotor sin desconectar las cañerías, reduciendo los tiempos de mantención.",
         image: "/productos/centrifuga-normalizada.jpg",
         specs: [
