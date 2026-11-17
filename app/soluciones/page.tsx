@@ -57,7 +57,7 @@ export default function SolucionesPage() {
         </div>
       </section>
 
-      <section className="catalog-support section">
+      <section className="catalog-support section" id="asesoria">
         <div className="catalog-support__box">
           <div>
             <p className="eyebrow">Asesoría técnica</p>

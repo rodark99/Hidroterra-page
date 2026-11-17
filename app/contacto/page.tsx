@@ -55,12 +55,12 @@ type ContactoPageProps = {
 // Mensajes según el motivo del error (el código entre paréntesis sirve para diagnosticar).
 const errorMessages: Record<string, string> = {
   datos: "Revisa los datos: el nombre debe tener al menos 3 letras, el correo debe ser válido y el mensaje al menos 10 caracteres.",
-  configuracion: "No pudimos enviar tu solicitud en este momento. Escríbenos a ventas@hidroterra.cl. (Código: configuración)",
-  clave: "No pudimos enviar tu solicitud en este momento. Escríbenos a ventas@hidroterra.cl. (Código: clave)",
-  "clave-publica": "No pudimos enviar tu solicitud en este momento. Escríbenos a ventas@hidroterra.cl. (Código: clave pública)",
-  tabla: "No pudimos enviar tu solicitud en este momento. Escríbenos a ventas@hidroterra.cl. (Código: tabla)",
-  "base-datos": "No pudimos enviar tu solicitud en este momento. Escríbenos a ventas@hidroterra.cl. (Código: base de datos)",
-  conexion: "No pudimos enviar tu solicitud en este momento. Escríbenos a ventas@hidroterra.cl. (Código: conexión)",
+  configuracion: "No pudimos enviar tu solicitud en este momento. Escríbenos a contacto@hidroterra.cl. (Código: configuración)",
+  clave: "No pudimos enviar tu solicitud en este momento. Escríbenos a contacto@hidroterra.cl. (Código: clave)",
+  "clave-publica": "No pudimos enviar tu solicitud en este momento. Escríbenos a contacto@hidroterra.cl. (Código: clave pública)",
+  tabla: "No pudimos enviar tu solicitud en este momento. Escríbenos a contacto@hidroterra.cl. (Código: tabla)",
+  "base-datos": "No pudimos enviar tu solicitud en este momento. Escríbenos a contacto@hidroterra.cl. (Código: base de datos)",
+  conexion: "No pudimos enviar tu solicitud en este momento. Escríbenos a contacto@hidroterra.cl. (Código: conexión)",
 };
 
 export default async function ContactoPage({ searchParams }: ContactoPageProps) {
@@ -101,10 +101,10 @@ export default async function ContactoPage({ searchParams }: ContactoPageProps) 
             <small>Llamar ahora</small>
           </a>
 
-          <a className="contact-method" href="mailto:ventas@hidroterra.cl">
+          <a className="contact-method" href="mailto:contacto@hidroterra.cl">
             <span className="contact-method__icon"><ContactIcon name="mail" /></span>
             <span className="contact-method__label">Correo</span>
-            <strong>ventas@hidroterra.cl</strong>
+            <strong>contacto@hidroterra.cl</strong>
             <small>Escribir un correo</small>
           </a>
         </div>

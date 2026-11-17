@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { SiteIndex } from "./site-index";
 
 export type NavigationKey = "inicio" | "empresa" | "soluciones" | "contacto";
 
@@ -31,7 +32,10 @@ function Navigation({ active, mobile = false }: { active: NavigationKey; mobile?
 export function Header({ active }: { active: NavigationKey }) {
   return (
     <header className="site-header">
-      <Brand />
+      <div className="site-header__start">
+        <SiteIndex />
+        <Brand />
+      </div>
       <Navigation active={active} />
       <details className="mobile-menu">
         <summary aria-label="Abrir menú"><span /><span /><span /></summary>
@@ -47,7 +51,7 @@ export function Footer() {
       <div className="footer__top">
         <div><Brand light /><p>Ingeniería y soluciones hidráulicas pensadas para perdurar.</p></div>
         <div className="footer__links"><strong>Navegación</strong><Link href="/empresa">Empresa</Link><Link href="/soluciones">Soluciones</Link><Link href="/contacto">Contacto</Link></div>
-        <div className="footer__contact"><strong>Contacto</strong><a href="tel:+56975194872">+56 9 7519 4872</a><a href="mailto:ventas@hidroterra.cl">ventas@hidroterra.cl</a><span>Américo Vespucio 2053, Of. 41, Renca</span></div>
+        <div className="footer__contact"><strong>Contacto</strong><a href="tel:+56975194872">+56 9 7519 4872</a><a href="mailto:contacto@hidroterra.cl">contacto@hidroterra.cl</a><span>Américo Vespucio 2053, Of. 41, Renca</span></div>
       </div>
       <div className="footer__bottom"><small>© 2026 Hidroterra SpA. Todos los derechos reservados.</small><small>Ingeniería · Agua · Energía</small></div>
     </footer>

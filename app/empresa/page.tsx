@@ -23,7 +23,7 @@ export default function EmpresaPage() {
     <PageShell active="empresa">
       <PageHero eyebrow="Empresa" title="Ingeniería cercana," accent="decisiones precisas." lead="Conectamos equipos confiables con la realidad técnica de cada operación." />
 
-      <section className="company-summary section" aria-labelledby="company-summary-title">
+      <section className="company-summary section" id="quienes-somos" aria-labelledby="company-summary-title">
         <div className="company-summary__copy">
           <p className="eyebrow">Quiénes somos</p>
           <h2 id="company-summary-title">Soluciones hidráulicas pensadas desde el terreno.</h2>
@@ -48,7 +48,7 @@ export default function EmpresaPage() {
         </div>
       </section>
 
-      <section className="offer section" aria-labelledby="offer-title">
+      <section className="offer section" id="que-ofrecemos" aria-labelledby="offer-title">
         <div className="section-head">
           <div>
             <p className="eyebrow">Qué ofrecemos</p>
@@ -68,7 +68,7 @@ export default function EmpresaPage() {
         </div>
       </section>
 
-      <section className="process section" aria-labelledby="process-title">
+      <section className="process section" id="como-trabajamos" aria-labelledby="process-title">
         <div className="section-head">
           <div>
             <p className="eyebrow">Cómo trabajamos</p>

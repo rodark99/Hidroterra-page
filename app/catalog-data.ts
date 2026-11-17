@@ -44,7 +44,7 @@ export const productFamilies: ProductFamily[] = [
     categories: [
       {
         name: "Bombas sumergibles de pozo",
-        description: "Para captación de agua subterránea en pozos de 4 a 12 pulgadas.",
+        description: "Para captación de agua subterránea en pozos de 3 a 12 pulgadas.",
         image: "/productos/bomba-4-grupo.png",
       },
       {
@@ -55,6 +55,29 @@ export const productFamilies: ProductFamily[] = [
       },
     ],
     models: [
+      {
+        id: "grundfos-sq",
+        category: "Bombas sumergibles de pozo",
+        name: "Bomba 3\" Grundfos SQ",
+        description: "La solución más simple para pozos angostos: se conecta directo a 220 V, sin tablero, y se protege sola contra trabajo en seco y variaciones de voltaje. Ideal para casas, parcelas, APR pequeños y riego.",
+        image: "/productos/grundfos-sq.png",
+        specs: [
+          { label: "Caudal máximo", value: "9 m³/h" },
+          { label: "Altura máxima", value: "237 m" },
+          { label: "Potencia", value: "0,70 a 1,85 kW" },
+          { label: "Alimentación", value: "Monofásica 220 V, 50/60 Hz" },
+          { label: "Diámetro mínimo del pozo", value: "76 mm (3\")" },
+          { label: "Arena", value: "Hasta 50 g/m³" },
+          { label: "Temperatura del líquido", value: "Hasta 40 °C" },
+          { label: "Modelos", value: "SQ 1, SQ 2, SQ 3, SQ 5 y SQ 7" },
+        ],
+        highlights: [
+          "Motor de imán permanente de alta eficiencia",
+          "Arranque suave: cuida la instalación y la red eléctrica",
+          "Protección contra marcha en seco, sobrecarga, sobretemperatura y sobre/baja tensión",
+          "Impulsores flotantes y válvula de retención incorporada",
+        ],
+      },
       {
         id: "bomba-4",
         category: "Bombas sumergibles de pozo",
@@ -263,8 +286,8 @@ export const productFamilies: ProductFamily[] = [
       {
         id: "tuberia-flexible",
         name: "Tubería flexible para pozos",
-        description: "Tubería flexible con acoples de acero inoxidable que se instala en una fracción del tiempo de una tubería rígida.",
-        image: "/productos/tuberia-acople-foto.jpg",
+        description: "Tubería flexible con acoples de acero inoxidable roscados que se instala en una fracción del tiempo de una tubería rígida.",
+        image: "/productos/copla-foto.png",
         specs: [
           { label: "Series", value: "150, 200, 250 y 400" },
           { label: "Tracción", value: "Hasta 20 toneladas" },
@@ -370,7 +393,7 @@ export const productFamilies: ProductFamily[] = [
         id: "copla",
         name: "Coplas",
         description: "Conexión roscada para unir dos tramos de cañería del mismo diámetro.",
-        image: "/productos/copla-foto.png",
+        image: "/productos/copla.png",
         specs: [
           { label: "Unión", value: "Roscada" },
           { label: "Uso", value: "Unión de tramos" },
