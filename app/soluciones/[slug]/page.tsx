@@ -52,7 +52,15 @@ export default async function ProductFamilyPage({ params }: FamilyPageProps) {
               {group.category && (
                 <div className="model-category" id={group.category.name.toLowerCase().replace(/\s+/g, "-")}>
                   <img src={group.category.image} alt="" />
-                  <div><h3>{group.category.name}</h3><p>{group.category.description}</p></div>
+                  <div>
+                    <h3>{group.category.name}</h3>
+                    <p>{group.category.description}</p>
+                    {group.category.catalog && (
+                      <a className="download-link" href={group.category.catalog.href} download>
+                        <span aria-hidden="true">↓</span> {group.category.catalog.label}
+                      </a>
+                    )}
+                  </div>
                 </div>
               )}
               {group.models.map((model) => (
@@ -65,7 +73,14 @@ export default async function ProductFamilyPage({ params }: FamilyPageProps) {
                     <h2>{model.name}</h2>
                     <p>{model.description}</p>
                     {model.highlights && <ul>{model.highlights.map((item) => <li key={item}>{item}</li>)}</ul>}
-                    <Link className="catalog-card__link" href={`/contacto?producto=${encodeURIComponent(model.name)}`}>Cotizar este equipo <span>↗</span></Link>
+                    <div className="model-card__actions">
+                      <Link className="catalog-card__link" href={`/contacto?producto=${encodeURIComponent(model.name)}`}>Cotizar este equipo <span>↗</span></Link>
+                      {model.catalog && (
+                        <a className="download-link" href={model.catalog.href} download>
+                          <span aria-hidden="true">↓</span> {model.catalog.label}
+                        </a>
+                      )}
+                    </div>
                   </div>
                   <dl className="spec-list">
                     {model.specs.map((spec) => <div key={`${model.name}-${spec.label}`}><dt>{spec.label}</dt><dd>{spec.value}</dd></div>)}

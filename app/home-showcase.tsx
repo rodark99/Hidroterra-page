@@ -67,6 +67,7 @@ function buildCards(family: ProductFamily): ReactNode[] {
         title={category.name}
         text={category.description}
         image={category.image}
+        catalog={category.catalog}
       />,
       ...family.models
         .filter((model) => model.category === category.name)
@@ -87,13 +88,18 @@ function buildCards(family: ProductFamily): ReactNode[] {
   ];
 }
 
-function IntroCard({ order, eyebrow, title, text, image }: { order: number; eyebrow: string; title: string; text: string; image: string }) {
+function IntroCard({ order, eyebrow, title, text, image, catalog }: { order: number; eyebrow: string; title: string; text: string; image: string; catalog?: { label: string; href: string } }) {
   return (
     <article className="rail-card rail-card--intro" style={{ "--i": order } as React.CSSProperties}>
       <div className="rail-card__copy">
         <span className="rail-card__eyebrow">{eyebrow}</span>
         <h3>{title}</h3>
         <p>{text}</p>
+        {catalog && (
+          <a className="download-link" href={catalog.href} download>
+            <span aria-hidden="true">↓</span> {catalog.label}
+          </a>
+        )}
       </div>
       <img src={image} alt={title} />
     </article>

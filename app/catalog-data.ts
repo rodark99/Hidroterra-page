@@ -8,12 +8,15 @@ export type ProductModel = {
   highlights?: string[];
   /** Solo para familias con categorías (por ejemplo, bombas). */
   category?: string;
+  /** Catálogo descargable en PDF (archivo dentro de /public/catalogos). */
+  catalog?: { label: string; href: string };
 };
 
 export type ProductCategory = {
   name: string;
   description: string;
   image: string;
+  catalog?: { label: string; href: string };
 };
 
 export type ProductFamily = {
@@ -46,8 +49,9 @@ export const productFamilies: ProductFamily[] = [
       },
       {
         name: "Bombas sumergibles de desagüe",
-        description: "Para aguas servidas, agotamiento, construcción y drenaje de faenas.",
-        image: "/productos/bombas-drenaje-grupo.png",
+        description: "Para aguas servidas, agotamiento, construcción y drenaje de faenas mineras.",
+        image: "/productos/minetuff-grupo.jpg",
+        catalog: { label: "Catálogo Minetuff (PDF)", href: "/catalogos/catalogo-minetuff.pdf" },
       },
     ],
     models: [
@@ -100,6 +104,25 @@ export const productFamilies: ProductFamily[] = [
         highlights: ["Válvula de retención incluida", "Configuraciones hasta 12 pulgadas"],
       },
       {
+        id: "minetuff",
+        category: "Bombas sumergibles de desagüe",
+        name: "Minetuff",
+        description: "Bombas industriales para drenaje pesado en minería y construcción, livianas y de bajo costo de mantenimiento.",
+        image: "/productos/minetuff.jpg",
+        specs: [
+          { label: "Potencia", value: "5 a 90 kW (7 a 120 HP)" },
+          { label: "Versión HH (grandes alturas)", value: "Hasta 200 m" },
+          { label: "Versión HV (grandes caudales)", value: "Hasta 500 m³/h" },
+          { label: "Inmersión máxima", value: "20 m (75 m en 90 kW)" },
+          { label: "Temperatura del líquido", value: "Hasta 40 °C" },
+          { label: "Motor", value: "Trifásico 380 V – 50 Hz" },
+          { label: "Protección", value: "IP68; aislamiento clase H (185 °C)" },
+          { label: "Descarga", value: "Roscada BSP" },
+        ],
+        highlights: ["Impulsores en acero dúplex", "Revestimiento antiabrasivo en el extremo húmedo", "Incluye 20 m de cable H07RN-F"],
+        catalog: { label: "Descargar catálogo (PDF)", href: "/catalogos/catalogo-minetuff.pdf" },
+      },
+      {
         id: "serie-nc-s",
         category: "Bombas sumergibles de desagüe",
         name: "Serie NC / S",
@@ -124,13 +147,13 @@ export const productFamilies: ProductFamily[] = [
     shortTitle: "Motores sumergibles",
     description: "Motores encapsulados y rebobinables para distintos diámetros, temperaturas, potencias y condiciones de operación.",
     application: "Pozos profundos, minería, agua potable, alta temperatura y sistemas de bombeo de gran potencia.",
-    coverImage: "/productos/motores-azules.png",
+    coverImage: "/productos/motores-grupo-foto.jpg",
     models: [
       {
         id: "motor-encapsulado-4",
         name: "Motor encapsulado 4\"",
         description: "Motor sumergible compacto en acero inoxidable para bombas de pozo de 4 pulgadas.",
-        image: "/productos/motor-4.png",
+        image: "/productos/motor-4-foto.jpg",
         specs: [
           { label: "Potencia", value: "0,37 a 7,5 kW" },
           { label: "Voltaje 220 V", value: "0,37 a 2,2 kW" },
@@ -142,7 +165,7 @@ export const productFamilies: ProductFamily[] = [
         id: "motores-encapsulados-6-8",
         name: "Motores encapsulados 6\" y 8\"",
         description: "Motores para sistemas de mayor potencia, con voltajes estándar y especiales.",
-        image: "/productos/motores-azules.png",
+        image: "/productos/motores-6-8-foto.png",
         specs: [
           { label: "Potencia 6\"", value: "5,5 a 45 kW" },
           { label: "Potencia 8\"", value: "30 kW a 150 HP" },
@@ -235,13 +258,13 @@ export const productFamilies: ProductFamily[] = [
     shortTitle: "Tubería flexible",
     description: "Tubería flexible para pozos que simplifica el transporte y reduce tiempos y costos de instalación.",
     application: "Conducción desde pozos profundos para agua potable, riego, industria y minería.",
-    coverImage: "/productos/tuberia-flexible.png",
+    coverImage: "/productos/tuberia-flexible-foto.jpg",
     models: [
       {
         id: "tuberia-flexible",
         name: "Tubería flexible para pozos",
         description: "Tubería flexible con acoples de acero inoxidable que se instala en una fracción del tiempo de una tubería rígida.",
-        image: "/productos/tuberia-flexible.png",
+        image: "/productos/tuberia-acople-foto.jpg",
         specs: [
           { label: "Series", value: "150, 200, 250 y 400" },
           { label: "Tracción", value: "Hasta 20 toneladas" },
@@ -347,7 +370,7 @@ export const productFamilies: ProductFamily[] = [
         id: "copla",
         name: "Coplas",
         description: "Conexión roscada para unir dos tramos de cañería del mismo diámetro.",
-        image: "/productos/copla.png",
+        image: "/productos/copla-foto.png",
         specs: [
           { label: "Unión", value: "Roscada" },
           { label: "Uso", value: "Unión de tramos" },
