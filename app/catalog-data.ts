@@ -107,7 +107,7 @@ export const productFamilies: ProductFamily[] = [
         category: "Bombas sumergibles de pozo",
         name: "Bombas 6\", 8\" y 10\"",
         description: "Bombas sumergibles de 6, 8 y 10 pulgadas para pozos profundos, en acero inoxidable, para agua potable, APR, riego e industria.",
-        image: "/productos/bomba-4-grupo.png",
+        image: "/productos/bombas-6-8-10.png",
         specs: [
           { label: "Diámetros", value: "6\", 8\" y 10\"" },
           { label: "Material", value: "Acero inoxidable" },
@@ -130,9 +130,9 @@ export const productFamilies: ProductFamily[] = [
         highlights: ["Acero inoxidable", "Válvula de retención incluida", "Sólidos hasta 50 g/m³"],
       },
       {
-        id: "series-hf",
+        id: "serie-hs-hierro-fundido",
         category: "Bombas sumergibles de pozo",
-        name: "Series HF Hierro Fundido",
+        name: "Serie HS Hierro Fundido",
         description: "Línea de gran capacidad para pozos profundos, minería e instalaciones que requieren alta presión y continuidad operacional.",
         image: "/productos/bomba-pozo-hft.png",
         specs: [
