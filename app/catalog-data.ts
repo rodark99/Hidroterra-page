@@ -87,17 +87,6 @@ export const productFamilies: ProductFamily[] = [
         ],
       },
       {
-        id: "bombas-4-y-6",
-        category: "Bombas sumergibles de pozo",
-        name: "Bombas 4\" y 6\"",
-        description: "Bombas sumergibles de 4 y 6 pulgadas para pozos profundos, en acero inoxidable, para agua potable, APR, riego e industria.",
-        image: "/productos/bomba-4-grupo.png",
-        specs: [
-          { label: "Diámetros", value: "4\" y 6\"" },
-          { label: "Material", value: "Acero inoxidable" },
-        ],
-      },
-      {
         id: "bomba-4",
         category: "Bombas sumergibles de pozo",
         name: "Bomba 4\"",
@@ -111,6 +100,17 @@ export const productFamilies: ProductFamily[] = [
           { label: "Sólidos", value: "100 g/m³; tamaño máx. 2 mm" },
         ],
         highlights: ["Válvula de retención incluida", "Impulsores flotantes"],
+      },
+      {
+        id: "bombas-6-y-8",
+        category: "Bombas sumergibles de pozo",
+        name: "Bombas 6\" y 8\"",
+        description: "Bombas sumergibles de 6 y 8 pulgadas para pozos profundos, en acero inoxidable, para agua potable, APR, riego e industria.",
+        image: "/productos/bomba-4-grupo.png",
+        specs: [
+          { label: "Diámetros", value: "6\" y 8\"" },
+          { label: "Material", value: "Acero inoxidable" },
+        ],
       },
       {
         id: "serie-hs",
