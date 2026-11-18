@@ -68,7 +68,7 @@ export const productFamilies: ProductFamily[] = [
         category: "Bombas sumergibles de pozo",
         name: "Bomba 3\" SQ",
         description: "La solución más simple para pozos angostos: se conecta directo a 220 V, sin tablero, y se protege sola contra trabajo en seco y variaciones de voltaje. Ideal para casas, parcelas, APR pequeños y riego.",
-        image: "/productos/bomba-3.png",
+        image: "/productos/bomba-3-foto.jpg",
         specs: [
           { label: "Caudal máximo", value: "9 m³/h" },
           { label: "Altura máxima", value: "237 m" },
@@ -91,6 +91,7 @@ export const productFamilies: ProductFamily[] = [
         category: "Bombas sumergibles de pozo",
         name: "Bomba 4\"",
         description: "Bomba sumergible compacta, de alta eficiencia y con impulsores flotantes para pozos de diámetro reducido.",
+        image: "/productos/bomba-4-foto.png",
         specs: [
           { label: "Caudal máximo", value: "24 m³/h" },
           { label: "Altura máxima", value: "278 m" },
@@ -102,13 +103,13 @@ export const productFamilies: ProductFamily[] = [
         highlights: ["Válvula de retención incluida", "Impulsores flotantes"],
       },
       {
-        id: "bombas-6-y-8",
+        id: "bombas-6-8-y-10",
         category: "Bombas sumergibles de pozo",
-        name: "Bombas 6\" y 8\"",
-        description: "Bombas sumergibles de 6 y 8 pulgadas para pozos profundos, en acero inoxidable, para agua potable, APR, riego e industria.",
+        name: "Bombas 6\", 8\" y 10\"",
+        description: "Bombas sumergibles de 6, 8 y 10 pulgadas para pozos profundos, en acero inoxidable, para agua potable, APR, riego e industria.",
         image: "/productos/bomba-4-grupo.png",
         specs: [
-          { label: "Diámetros", value: "6\" y 8\"" },
+          { label: "Diámetros", value: "6\", 8\" y 10\"" },
           { label: "Material", value: "Acero inoxidable" },
         ],
       },
@@ -129,9 +130,9 @@ export const productFamilies: ProductFamily[] = [
         highlights: ["Acero inoxidable", "Válvula de retención incluida", "Sólidos hasta 50 g/m³"],
       },
       {
-        id: "series-hfs-hft",
+        id: "series-hf",
         category: "Bombas sumergibles de pozo",
-        name: "Series HFS y HFT",
+        name: "Series HF Hierro Fundido",
         description: "Línea de gran capacidad para pozos profundos, minería e instalaciones que requieren alta presión y continuidad operacional.",
         image: "/productos/bomba-pozo-hft.png",
         specs: [
@@ -139,8 +140,7 @@ export const productFamilies: ProductFamily[] = [
           { label: "Altura máxima", value: "400 m" },
           { label: "Diámetros", value: "8\", 10\" y 12\"" },
           { label: "Potencia", value: "15 a 250 kW" },
-          { label: "Serie HFS", value: "Acero inoxidable 316L; eje dúplex" },
-          { label: "Serie HFT", value: "Fierro fundido" },
+          { label: "Material", value: "Hierro fundido" },
         ],
         highlights: ["Válvula de retención incluida", "Configuraciones hasta 12 pulgadas"],
       },
@@ -228,7 +228,7 @@ export const productFamilies: ProductFamily[] = [
         id: "motor-encapsulado-4",
         name: "Motor encapsulado 4\"",
         description: "Motor sumergible compacto en acero inoxidable para bombas de pozo de 4 pulgadas.",
-        image: "/productos/motor-4-foto.jpg",
+        image: "/productos/motor-4-aislado.png",
         specs: [
           { label: "Potencia", value: "0,37 a 7,5 kW" },
           { label: "Voltaje 220 V", value: "0,37 a 2,2 kW" },
@@ -254,7 +254,7 @@ export const productFamilies: ProductFamily[] = [
         id: "motores-rebobinables",
         name: "Motores rebobinables",
         description: "Línea de alta potencia en aleaciones resistentes para aplicaciones industriales y mineras exigentes.",
-        image: "/productos/motor-rebobinable.png",
+        image: "/productos/motores-grupo-foto.jpg",
         specs: [
           { label: "Potencia 6\"", value: "30 a 50 HP" },
           { label: "Potencia 8\"", value: "40 a 125 HP" },
