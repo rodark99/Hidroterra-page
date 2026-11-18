@@ -74,7 +74,7 @@ export default async function ProductFamilyPage({ params }: FamilyPageProps) {
                 <article className="model-card" id={model.id} key={model.id}>
                   <div className="model-card__media">
                     <span>{String(++counter).padStart(2, "0")}</span>
-                    <img src={model.image} alt={model.name} />
+                    {model.image ? <img src={model.image} alt={model.name} /> : <span className="photo-soon">Foto próximamente</span>}
                   </div>
                   <div className="model-card__content">
                     <h2>{model.name}</h2>

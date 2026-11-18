@@ -3,7 +3,8 @@ export type ProductModel = {
   id: string;
   name: string;
   description: string;
-  image: string;
+  /** Opcional: si no hay foto se muestra "Foto próximamente". */
+  image?: string;
   specs: Array<{ label: string; value: string }>;
   highlights?: string[];
   /** Solo para familias con categorías (por ejemplo, bombas). */
@@ -86,11 +87,21 @@ export const productFamilies: ProductFamily[] = [
         ],
       },
       {
+        id: "bombas-4-y-6",
+        category: "Bombas sumergibles de pozo",
+        name: "Bombas 4\" y 6\"",
+        description: "Bombas sumergibles de 4 y 6 pulgadas para pozos profundos, en acero inoxidable, para agua potable, APR, riego e industria.",
+        image: "/productos/bomba-4-grupo.png",
+        specs: [
+          { label: "Diámetros", value: "4\" y 6\"" },
+          { label: "Material", value: "Acero inoxidable" },
+        ],
+      },
+      {
         id: "bomba-4",
         category: "Bombas sumergibles de pozo",
         name: "Bomba 4\"",
         description: "Bomba sumergible compacta, de alta eficiencia y con impulsores flotantes para pozos de diámetro reducido.",
-        image: "/productos/bomba-4-grupo.png",
         specs: [
           { label: "Caudal máximo", value: "24 m³/h" },
           { label: "Altura máxima", value: "278 m" },

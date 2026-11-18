@@ -108,7 +108,7 @@ function ModelCard({ order, family, model }: { order: number; family: ProductFam
   return (
     <Link className="rail-card rail-card--model" href={modelHref(family, model)} style={{ "--i": order } as React.CSSProperties}>
       <div className="rail-card__media">
-        <img src={model.image} alt={model.name} />
+        {model.image ? <img src={model.image} alt={model.name} /> : <span className="photo-soon">Foto próximamente</span>}
       </div>
       <div className="rail-card__body">
         {model.category && <span className="rail-card__eyebrow">{model.category.replace("Bombas sumergibles de ", "")}</span>}
