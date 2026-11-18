@@ -40,7 +40,7 @@ export const productFamilies: ProductFamily[] = [
     number: "01",
     title: "Bombas",
     shortTitle: "Bombas",
-    description: "Bombas sumergibles para pozos y desagüe, y bombas centrífugas de superficie para presurización, riego e industria.",
+    description: "Bombas sumergibles para pozos y desagüe, y bombas centrífugas de superficie, fabricadas en acero dúplex, acero inoxidable y hierro fundido.",
     application: "Agua potable, APR, riego, industria, procesos, aguas servidas, faenas y dewatering de mina.",
     coverImage: "/productos/bombas-pozo-grupo.png",
     categories: [

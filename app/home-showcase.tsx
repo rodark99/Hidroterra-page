@@ -46,7 +46,7 @@ export function ShowcaseSection({ family, index }: { family: ProductFamily; inde
           {family.shortTitle}. <span>{family.description}</span>
         </h2>
         <Link className="arrow-link" href={`/soluciones/${family.slug}`}>
-          Ver la sección completa <span>→</span>
+          Ver sección completa <span>→</span>
         </Link>
       </div>
       <Rail label={`Productos de ${family.shortTitle}`}>{cards}</Rail>

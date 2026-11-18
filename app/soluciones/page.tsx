@@ -15,7 +15,7 @@ export default function SolucionesPage() {
         <div className="catalog-hero__content">
           <p className="eyebrow">Productos y soluciones</p>
           <h1>Equipamiento confiable para <em>cada desafío hidráulico.</em></h1>
-          <p>Explora nuestras familias de productos. En cada sección encontrarás los equipos disponibles, sus aplicaciones y rangos técnicos principales.</p>
+          <p>Conoce nuestras líneas de productos. En cada sección encontrarás los equipos disponibles, sus aplicaciones y rangos técnicos principales.</p>
           <a className="button button--primary" href="#catalogo">Ver catálogo <span>↓</span></a>
         </div>
         <div className="catalog-hero__media" aria-label="Aplicaciones de agua y minería">

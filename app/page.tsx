@@ -15,7 +15,7 @@ export default function Home() {
             Ingeniería que mueve tus necesidades
           </h1>
           <p>
-            Explora nuestros equipos por categoría y encuentra modelos,
+            Conoce nuestras líneas de equipos por categoría y encuentra modelos,
             aplicaciones y especificaciones para tu proyecto.
           </p>
         </div>
