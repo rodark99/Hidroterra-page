@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactBand, PageHero, PageShell } from "../components";
 import { productFamilies } from "../catalog-data";
+import { buildMetadata, pageSeo } from "../seo";
 
-export const metadata: Metadata = { title: "Empresa", description: "Conoce la historia, el compromiso y los valores de Hidroterra." };
+export const metadata: Metadata = buildMetadata(pageSeo.empresa, "/empresa");
 
 const principles = [
   { title: "Confianza", text: "Recomendamos lo que la operación necesita, con información clara desde la primera conversación." },

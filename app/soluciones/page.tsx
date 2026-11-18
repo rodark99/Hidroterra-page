@@ -2,11 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactBand, PageShell } from "../components";
 import { productFamilies } from "../catalog-data";
+import { buildMetadata, pageSeo } from "../seo";
 
-export const metadata: Metadata = {
-  title: "Productos y soluciones",
-  description: "Catálogo de bombas sumergibles de pozo y desagüe, motores sumergibles, cable sumergible, tableros eléctricos, tubería flexible, cañerías, válvulas y conexiones de Hidroterra.",
-};
+export const metadata: Metadata = buildMetadata(pageSeo.soluciones, "/soluciones");
 
 const supportPoints = ["Caudal y altura de trabajo", "Potencia y voltaje", "Materiales según el fluido", "Configuración de control"];
 

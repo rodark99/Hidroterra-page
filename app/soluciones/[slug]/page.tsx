@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ContactBand, PageShell } from "../../components";
 import { getProductFamily, productFamilies } from "../../catalog-data";
+import { buildMetadata, familySeo } from "../../seo";
 
 type FamilyPageProps = { params: Promise<{ slug: string }> };
 
@@ -14,7 +15,8 @@ export async function generateMetadata({ params }: FamilyPageProps): Promise<Met
   const { slug } = await params;
   const family = getProductFamily(slug);
   if (!family) return { title: "Producto no encontrado" };
-  return { title: family.shortTitle, description: family.description };
+  const seo = familySeo[slug] ?? { title: family.shortTitle, description: family.description, keywords: [] };
+  return buildMetadata(seo, `/soluciones/${slug}`, family.coverImage);
 }
 
 export default async function ProductFamilyPage({ params }: FamilyPageProps) {

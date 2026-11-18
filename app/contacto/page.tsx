@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import { ContactForm, PageHero, PageShell } from "../components";
+import { buildMetadata, pageSeo } from "../seo";
 
-export const metadata: Metadata = {
-  title: "Contacto",
-  description:
-    "Contacta a Hidroterra para cotizar equipos y conversar sobre tu proyecto hidráulico.",
-};
+export const metadata: Metadata = buildMetadata(pageSeo.contacto, "/contacto");
 
 type ContactIconName = "location" | "phone" | "mail" | "instagram";
 
