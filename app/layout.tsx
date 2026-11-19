@@ -9,8 +9,13 @@ export const metadata: Metadata = {
   applicationName: "Hidroterra",
   robots: { index: true, follow: true },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32.png", type: "image/png", sizes: "32x32" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: { url: "/apple-icon.png", sizes: "180x180" },
   },
 };
 
