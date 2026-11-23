@@ -6,6 +6,6 @@
  *   https://<tu-dirección>/?acceso=<CLAVE_ACCESO>
  * El navegador queda autorizado por 30 días. Las versiones de prueba de Vercel no se bloquean.
  */
-export const SITIO_EN_CONSTRUCCION = true;
+export const SITIO_EN_CONSTRUCCION = false;
 export const CLAVE_ACCESO = "ver-hidroterra-7k2p";
 export const COOKIE_ACCESO = "hidroterra_acceso";
