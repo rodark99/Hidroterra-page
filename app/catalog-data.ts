@@ -491,7 +491,7 @@ export const productFamilies: ProductFamily[] = [
     shortTitle: "Conexiones",
     description: "Coplas, thredolets y otras conexiones para unir y derivar cañerías.",
     application: "Unión de tramos, derivaciones y montaje de instrumentos en redes de agua e industria.",
-    coverImage: "/productos/conexiones.png",
+    coverImage: "/productos/thredolet-foto.jpg",
     models: [
       {
         id: "copla",
@@ -507,7 +507,7 @@ export const productFamilies: ProductFamily[] = [
         id: "thredolet",
         name: "Thredolet",
         description: "Conexión que se suelda sobre la cañería para crear una derivación con salida roscada.",
-        image: "/productos/thredolet.png",
+        image: "/productos/thredolet-foto.jpg",
         specs: [
           { label: "Unión", value: "Soldada a la cañería" },
           { label: "Salida", value: "Roscada" },
