@@ -497,7 +497,7 @@ export const productFamilies: ProductFamily[] = [
         id: "copla",
         name: "Coplas",
         description: "Conexión roscada para unir dos tramos de cañería del mismo diámetro.",
-        image: "/productos/copla.png",
+        image: "/productos/copla-real.jpg",
         specs: [
           { label: "Unión", value: "Roscada" },
           { label: "Uso", value: "Unión de tramos" },
