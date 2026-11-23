@@ -79,10 +79,10 @@ export const familySeo: Record<string, PageSeo> = {
     keywords: ["cañería galvanizada", "cañería acero inoxidable", "cañería acero negro", "hilo NPT", "hilo BSP"],
   },
   valvulas: {
-    title: "Válvulas de bola, compuerta y retención",
+    title: "Válvulas: mariposa, tapón, retención y ventosas",
     description:
-      "Válvulas manuales de bola y compuerta, y válvulas de retención (check) para controlar, aislar y proteger sistemas de bombeo y redes de agua.",
-    keywords: ["válvula de retención", "válvula check", "válvula de bola", "válvula de compuerta"],
+      "Válvulas de bola, compuerta, mariposa, tapón y retención, y ventosas de doble efecto para controlar, aislar y proteger sistemas de bombeo.",
+    keywords: ["válvula de retención", "válvula check", "válvula de bola", "válvula de compuerta", "válvula mariposa", "válvula de tapón", "ventosa", "válvula de aire"],
   },
   conexiones: {
     title: "Coplas, thredolet y conexiones para cañerías",
