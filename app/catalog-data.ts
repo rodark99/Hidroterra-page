@@ -358,6 +358,17 @@ export const productFamilies: ProductFamily[] = [
         ],
         highlights: ["Alto rendimiento hidráulico", "Sin crecimiento de bacterias", "Menor costo de instalación y transporte"],
       },
+      {
+        id: "anillo-partido",
+        name: "Anillo partido de sujeción",
+        description: "Anillo bipartido de acero inoxidable con hilo interior que se aprieta con pernos para sujetar el acople a la tubería flexible durante la instalación y el retiro del equipo.",
+        image: "/productos/anillo-partido.jpg",
+        specs: [
+          { label: "Material", value: "Acero inoxidable" },
+          { label: "Cierre", value: "Dos mitades apernadas" },
+          { label: "Uso", value: "Sujeción de acoples de tubería flexible" },
+        ],
+      },
     ],
   },
   {
