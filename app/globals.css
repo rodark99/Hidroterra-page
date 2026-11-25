@@ -999,3 +999,15 @@ body.index-open{overflow:hidden}
 .construccion__datos span{font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--blue)}
 .construccion__datos strong{font-size:15px}
 @media(max-width:560px){.construccion__datos{grid-template-columns:1fr}}
+
+/* Pozo de pruebas (animación) */
+.pozo-demo{background:linear-gradient(180deg,#05283b 0%,#05283b 100%);color:#fff;padding:90px var(--gutter);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,90px);align-items:center}
+.pozo-demo__text .eyebrow{color:var(--cyan)}
+.pozo-demo__text h2{margin:16px 0 20px;font-size:clamp(30px,3.4vw,46px);line-height:1.08;letter-spacing:-.03em;max-width:520px}
+.pozo-demo__text>p{color:#b7d3df;font-size:17px;line-height:1.7;max-width:500px;margin:0}
+.pozo-demo__parts{list-style:none;padding:0;margin:30px 0 0;display:flex;flex-wrap:wrap;gap:10px;max-width:520px}
+.pozo-demo__parts a{display:inline-block;padding:10px 16px;border-radius:999px;border:1px solid rgba(95,211,240,.35);color:#e6f6fb;font-size:13px;font-weight:700;transition:background .25s,border-color .25s}
+.pozo-demo__parts a:hover,.pozo-demo__parts a:focus-visible{background:rgba(95,211,240,.12);border-color:#5fd3f0;outline:none}
+.pozo-demo__stage{display:flex;justify-content:center}
+.pozo-demo__stage iframe{display:block;width:100%;max-width:560px;aspect-ratio:640/900;border:0;background:#05283b}
+@media(max-width:900px){.pozo-demo{grid-template-columns:1fr;padding-top:70px;padding-bottom:60px}.pozo-demo__stage{order:2}}

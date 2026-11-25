@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ContactBand, PageShell } from "./components";
 import { productFamilies } from "./catalog-data";
 import { ShowcaseSection } from "./home-showcase";
+import { PozoDemo } from "./pozo-demo";
 import { buildMetadata, pageSeo } from "./seo";
 
 export const metadata = buildMetadata(pageSeo.inicio, "/", "/hidroterra-brand.png", true);
@@ -40,6 +41,7 @@ export default function Home() {
           Ver todos los productos <span>↗</span>
         </Link>
       </div>
+      <PozoDemo />
       <ContactBand title="¿Ya sabes qué equipo necesita tu proyecto?" />
     </PageShell>
   );
