@@ -317,7 +317,7 @@ export const productFamilies: ProductFamily[] = [
         id: "cable-redondo",
         name: "Cable redondo",
         description: "Cable redondo flexible para alimentación de motores sumergibles y equipos de superficie.",
-        image: "/productos/cable-redondo.png",
+        image: "/productos/cable-superflex-foto.jpg",
         specs: [
           { label: "Goma redondo H07RN-F", value: "4 × 2,5 a 4 × 70 mm²" },
         ],
@@ -413,7 +413,7 @@ export const productFamilies: ProductFamily[] = [
         id: "caneria-acero-negro",
         name: "Cañería de acero negro",
         description: "Cañería de acero al carbono sin recubrimiento, de alta resistencia mecánica.",
-        image: "/productos/caneria-acero-negro.png",
+        image: "/productos/caneria-acero-negro-foto.jpg",
         specs: [
           { label: "Material", value: "Acero al carbono" },
           { label: "Hilo", value: "NPT o BSP" },
