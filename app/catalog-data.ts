@@ -426,46 +426,10 @@ export const productFamilies: ProductFamily[] = [
     number: "07",
     title: "Válvulas",
     shortTitle: "Válvulas",
-    description: "Válvulas manuales, de retención, mariposa, de tapón y ventosas para controlar, aislar y proteger el sistema de bombeo.",
+    description: "Válvulas mariposa, de tapón lubricada y ventosas de doble efecto para controlar, aislar y proteger el sistema de bombeo.",
     application: "Corte y regulación de flujo, protección contra retorno, expulsión de aire en las líneas y aislamiento de equipos para mantención.",
     coverImage: "/productos/ventosa-doble-efecto.jpg",
     models: [
-      {
-        id: "valvula-bola",
-        name: "Válvula de bola",
-        description: "Válvula manual de paso total, de apertura y cierre rápido con un cuarto de vuelta.",
-        image: "/productos/valvula-bola.png",
-        specs: [
-          { label: "Material", value: "Latón forjado" },
-          { label: "Paso", value: "Total" },
-          { label: "Asiento", value: "Teflón, junta tórica doble" },
-          { label: "Conexión", value: "Hilo hembra BSP (ISO 228)" },
-          { label: "Temperatura de trabajo", value: "0 a 120 °C" },
-        ],
-      },
-      {
-        id: "valvula-compuerta",
-        name: "Válvula de compuerta",
-        description: "Válvula manual para aislar tramos y equipos de la instalación, en latón para diámetros pequeños y en hierro dúctil con sello elastomérico para redes mayores.",
-        image: "/productos/valvula-compuerta.png",
-        specs: [
-          { label: "Latón", value: "Hilo hembra BSP (ISO 228), 0 a 120 °C" },
-          { label: "Hierro dúctil", value: "GGG50, disco con EPDM, PN10/16" },
-          { label: "Vástago", value: "Acero inoxidable" },
-        ],
-      },
-      {
-        id: "valvula-retencion",
-        name: "Válvula de retención (check)",
-        description: "Permite el paso del agua en un solo sentido y evita el retorno hacia la bomba. Disponible en latón roscada y en hierro dúctil tipo wafer o de bola.",
-        image: "/productos/valvula-retencion.png",
-        specs: [
-          { label: "Latón", value: "Vertical u horizontal, hilo hembra BSP, 0 a 90 °C" },
-          { label: "Tipo wafer", value: "Hierro dúctil GGG50, disco inoxidable 304" },
-          { label: "Tipo bola", value: "Hierro dúctil, apta para aguas servidas" },
-          { label: "Asiento", value: "EPDM / NBR" },
-        ],
-      },
       {
         id: "valvula-mariposa",
         name: "Válvula mariposa con reductor",
