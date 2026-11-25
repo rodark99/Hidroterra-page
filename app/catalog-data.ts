@@ -387,13 +387,13 @@ export const productFamilies: ProductFamily[] = [
     shortTitle: "Cañerías",
     description: "Cañerías galvanizadas, de acero inoxidable y de acero negro, con hilo NPT o BSP.",
     application: "Columnas de impulsión, redes de agua, instalaciones industriales y montaje de equipos de bombeo.",
-    coverImage: "/productos/canerias.png",
+    coverImage: "/productos/caneria-inox-foto.jpg",
     models: [
       {
         id: "caneria-galvanizada",
         name: "Cañería galvanizada",
         description: "Cañería de acero con recubrimiento de zinc que la protege de la corrosión.",
-        image: "/productos/caneria-galvanizada.png",
+        image: "/productos/caneria-galvanizada-foto.jpg",
         specs: [
           { label: "Material", value: "Acero galvanizado" },
           { label: "Hilo", value: "NPT o BSP" },
@@ -403,7 +403,7 @@ export const productFamilies: ProductFamily[] = [
         id: "caneria-acero-inoxidable",
         name: "Cañería de acero inoxidable",
         description: "Cañería resistente a la corrosión para agua potable, fluidos agresivos e industria.",
-        image: "/productos/caneria-inox.png",
+        image: "/productos/caneria-inox-foto.jpg",
         specs: [
           { label: "Material", value: "Acero inoxidable" },
           { label: "Hilo", value: "NPT o BSP" },
