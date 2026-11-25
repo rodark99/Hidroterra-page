@@ -369,7 +369,7 @@ export const productFamilies: ProductFamily[] = [
         id: "tuberia-flexible",
         name: "Tubería flexible para pozos",
         description: "Tubería flexible con acoples de acero inoxidable roscados que se instala en una fracción del tiempo de una tubería rígida.",
-        image: "/productos/copla-foto.png",
+        image: "/productos/tuberia-acople-foto.jpg",
         specs: [
           { label: "Series", value: "150, 200, 250 y 400" },
           { label: "Tracción", value: "Hasta 20 toneladas" },
@@ -377,17 +377,6 @@ export const productFamilies: ProductFamily[] = [
           { label: "Certificación", value: "Aprobaciones NSF" },
         ],
         highlights: ["Alto rendimiento hidráulico", "Sin crecimiento de bacterias", "Menor costo de instalación y transporte"],
-      },
-      {
-        id: "anillo-partido",
-        name: "Anillo partido de sujeción",
-        description: "Anillo bipartido de acero inoxidable con hilo interior que se aprieta con pernos para sujetar el acople a la tubería flexible durante la instalación y el retiro del equipo.",
-        image: "/productos/anillo-partido.jpg",
-        specs: [
-          { label: "Material", value: "Acero inoxidable" },
-          { label: "Cierre", value: "Dos mitades apernadas" },
-          { label: "Uso", value: "Sujeción de acoples de tubería flexible" },
-        ],
       },
     ],
   },
